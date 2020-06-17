@@ -1,0 +1,26 @@
+.container{
+    
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-gap: 100px;
+}
+.post-title {
+    font-size: 60px;
+}
+.post-body {
+    font-size: 60px;
+    border:2px solid gray;
+
+}
+/* 
+.post-container{
+    padding:0 30px 0 30px;
+} */
