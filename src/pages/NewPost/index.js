@@ -3,37 +3,32 @@ import './index.css'
 import api from '../../services/api.js'
 
 const NewPost=({match})=>{
-     const[body,setBody] = useState();
-    const [title, setTitle] = useState();
+     const[body,setBody] = useState('');
+    const [title, setTitle] = useState('');
 
 
-    useEffect(() => {
-       async function setHeaders(){
 
-      await  api.post('/posts',{
-            headers:{
-                user:match.params.userId
-            }
-        })
-       }
-       setHeaders();
-        return () => {
-            
-        }
-    }, [match.params.userId])
 
+
+    
      async function handleSubmit(event){
          event.preventDefault();
          await api.post('/posts',{
+             headers: {
+                 user: match.params.userId
+             },
              title,
-             body
+             body,
 
          })
-
-         console.log(match.params.userId);
+           console.log(match.params.userId);
      }
+
+
+
+
     return(<div className="container">
-        <h1>Escreva seu post abaixo</h1>
+        <h1>{match.params.userId}</h1>
         <div className="post-container">
             <form onSubmit={handleSubmit}>
             <input placeholder="digite o titulo da sua postagem" 
@@ -53,6 +48,7 @@ const NewPost=({match})=>{
             <button type="submit">Postar</button>
             </form>
         </div>
+
 
     </div>)
 }

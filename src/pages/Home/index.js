@@ -1,12 +1,11 @@
 import React,{useEffect,useState} from 'react';
-import { useHistory } from "react-router-dom";
+import {useHistory} from 'react-router-dom'
 import './index.css'
 import api from '../../services/api'
 const Home =  ({match})=>{
  const [posts,setPosts] = useState([]);
 
 let history = useHistory();
-
   
     useEffect(() => {
         async function loadPosts() {
@@ -22,10 +21,9 @@ let history = useHistory();
         loadPosts();
     }, [match.params.userId])
 
-    async function handleCreation(event){
-        event.preventDefault();
+    async function handleCreation(){
 
-        history.push(`/${match.params.userId}/creation`)
+        history.push(`/${match.params.userId}/creation`);
 
     }
 
