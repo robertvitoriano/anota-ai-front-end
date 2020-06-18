@@ -59,7 +59,6 @@ const Login = ({ history }) => {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 ></input>
-
                 <button type="submit">Cadastrar</button>
             </form>
         </div>
