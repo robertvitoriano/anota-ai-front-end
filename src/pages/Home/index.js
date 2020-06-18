@@ -4,7 +4,7 @@ import api from '../../services/api'
 const Home =  ({match})=>{
  const [posts,setPosts] = useState([]);
 
-let readyToCreate = false;
+
   
     useEffect(() => {
         async function loadPosts() {
@@ -20,13 +20,10 @@ let readyToCreate = false;
         loadPosts();
     }, [match.params.userId])
 
-    const handleCreation = ()=>{
-        readyToCreate = true;
 
-    }
 
     return (<div className="container" >
-       
+           <button>No post</button>
 
         {posts.length > 0 ? (
             <ul>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+// import { Link } from 'react-router-dom';
 import api from '../../services/api'
 
 import './index.css'
@@ -20,6 +20,11 @@ const Login = ({history})=>{
 
         history.push(`/user/${_id}`)
     }
+    function handleSignInButton(event){
+        event.preventDefault()
+        history.push(`/user/signin`)
+
+    }
 
 
     return(<div className="container">
@@ -39,8 +44,10 @@ const Login = ({history})=>{
                  value={password}
                  onChange={e=>setPassword(e.target.value)}
                  ></input>
-                <button type="submit">Login</button>
+                <button type="submit" className="login-button">Login</button>
             </form>
+            <button type= "button" onClick={e=>handleSignInButton(e)}>Sign In</button>
+
             </div>
     </div>)
 }
