@@ -3,22 +3,22 @@ import {useHistory} from 'react-router-dom'
 import './index.css'
 import api from '../../services/api'
 const Home =  ({match})=>{
- const [posts,setPosts] = useState([]);
+ const [notes,setNotes] = useState([]);
 
 let history = useHistory();
   
     useEffect(() => {
-        async function loadPosts() {
-            const response = await api.get('/posts', {
+        async function loadNotes() {
+            const response = await api.get('/notes', {
                 headers: {
-                    user: match.params.userId,
+                    userauth: localStorage.getItem("Authorization"),
                 },
 
             })
-            setPosts(response.data);
+            setNotes(response.data);
            
         }
-        loadPosts();
+        loadNotes();
     }, [match.params.userId])
 
     async function handleCreation(){
@@ -30,25 +30,25 @@ let history = useHistory();
 
 
     return (<div className="container" >
-           <button onClick={handleCreation}>Criar Post</button>
+           <button onClick={handleCreation}>Criar Anotação</button>
 
-        {posts.length > 0 ? (
+        {notes.length > 0 ? (
             <ul>
-                {posts.map((post) =>
-                    <li key={post._id} className="post-container">
+                {notes.map((note) =>
+                    <li key={note._id} className="note-container">
                         <div className="post-title">
-                            <h2>{post.title}</h2>
+                            <h2>{note.title}</h2>
                             </div>
                     
-                    <div className="post-body">
-                    <p>{post.body}</p>
+                    <div className="note-body">
+                    <p>{note.body}</p>
                         </div>
                     </li>
 
                 )}
             </ul>
 
-        )  : <h1>Nada postado</h1>}
+        )  : <h1>Nenhuma anotação ainda</h1>}
 
 
 

@@ -14,7 +14,7 @@ const Login = ({ history }) => {
     async function handleSubmit(event) {
         event.preventDefault()
 
-        const response = await api.post('/users', {
+        await api.post('/users', {
             email: email,
             password: password,
             name:name,
@@ -23,9 +23,9 @@ const Login = ({ history }) => {
         })
 
 
-        const { _id } = response.data
+        
 
-        history.push(`/user/${_id}`)
+        history.push(`/`)
     }
 
 

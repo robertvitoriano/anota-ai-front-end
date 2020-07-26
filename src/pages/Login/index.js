@@ -11,15 +11,18 @@ const Login = ({history})=>{
     async function handleSubmit(event) {
         event.preventDefault()
 
-        const response = await api.post('/users', {
+        const response = await api.post('/users/login', {
             email: email,
             password:password
         })
            
      
        // response será o user encontrado no banco de dados
-        const { _id } = response.data
-        history.push(`/user/${_id}`)
+        const {token,user } = response.data
+        localStorage.setItem("Authorization", token);
+
+        history.push(`/user/${user._id}`)
+       
     }
     function handleSignInButton(event){
         event.preventDefault()

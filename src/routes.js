@@ -3,7 +3,7 @@ import React from 'react'
 import Login from './pages/Login/index';
 import Home from './pages/Home/index';
 import SignIn from './pages/SignIn/index'
-import NewPost from './pages/NewPost/index';
+import NewNote from './pages/NewNote/index';
 
 
 export default function Routes() {
@@ -13,11 +13,7 @@ export default function Routes() {
                 <Route path="/" exact component={Login} />
                 <Route path="/user/signin" component={SignIn} />
                 <Route path="/user/:userId" component={Home} />
-                <Route path="/:userId/creation" component={NewPost} />
-
-
-               
-
+                <Route path="/:userId/creation" component={NewNote}/>
             </Switch>
 
         </Router>)

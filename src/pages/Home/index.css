@@ -12,10 +12,10 @@ ul{
     grid-template-columns: 300px 300px 300px 300px;
     grid-gap: 100px;
 }
-.post-title {
-    font-size: 60px;
+.note-title {
+    font-size: 20px;
 }
-.post-body {
+.note-body {
     font-size: 60px;
     border:2px solid gray;
 
