@@ -10,7 +10,6 @@ const Login = ({history})=>{
     
     async function handleSubmit(event) {
         event.preventDefault()
-
         const response = await api.post('/users/login', {
             email: email,
             password:password

@@ -4,6 +4,7 @@ import Login from './pages/Login/index';
 import Home from './pages/Home/index';
 import SignIn from './pages/SignIn/index'
 import NewNote from './pages/NewNote/index';
+import UpdateNote from './pages/UpdateNote/index'
 
 
 export default function Routes() {
@@ -14,6 +15,8 @@ export default function Routes() {
                 <Route path="/user/signin" component={SignIn} />
                 <Route path="/user/:userId" component={Home} />
                 <Route path="/:userId/creation" component={NewNote}/>
+                <Route path="/:noteId/update" component={UpdateNote} />
+
             </Switch>
 
         </Router>)

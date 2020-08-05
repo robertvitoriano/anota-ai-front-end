@@ -13,7 +13,6 @@ let history = useHistory();
                 headers: {
                     userauth: localStorage.getItem("Authorization"),
                 },
-
             })
             setNotes(response.data);
            
@@ -22,8 +21,12 @@ let history = useHistory();
     }, [match.params.userId])
 
     async function handleCreation(){
+        history.push(`/${match.params.userId}/creation`,);
 
-        history.push(`/${match.params.userId}/creation`);
+    }
+    async function handleUpdate(id){
+        history.push(`/${id}/update`);
+
 
     }
 
@@ -35,15 +38,16 @@ let history = useHistory();
         {notes.length > 0 ? (
             <ul>
                 {notes.map((note) =>
-                    <li key={note._id} className="note-container">
+                    <a key={note._id} onClick={()=>{handleUpdate(note._id)}}>
+                    <li className="note-container">
                         <div className="post-title">
                             <h2>{note.title}</h2>
                             </div>
-                    
                     <div className="note-body">
                     <p>{note.body}</p>
                         </div>
                     </li>
+                    </a>
 
                 )}
             </ul>
