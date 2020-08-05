@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import {useHistory} from 'react-router-dom'
-import './index.css'
+import './home.css'
 import api from '../../services/api'
 const Home =  ({match})=>{
  const [notes,setNotes] = useState([]);
@@ -33,7 +33,9 @@ let history = useHistory();
 
 
     return (<div className="container" >
+ 
            <button onClick={handleCreation}>Criar Anotação</button>
+    
 
         {notes.length > 0 ? (
             <ul>

@@ -3,7 +3,9 @@
     justify-content: center;
     align-items: center;
 }
-
+.note-title{
+    font-size:20px;
+}
 .note-creation-container{
     height: 40%;
     width:50%;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from './../../services/api'
 
-import './index.css'
+import './update-note.css'
 const UpdateNote = ({ history, match }) => {
 
     const [noteTitle, setNoteTitle] = useState('')

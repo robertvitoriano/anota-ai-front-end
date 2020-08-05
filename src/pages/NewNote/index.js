@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import './index.css'
+import './new-note.css'
 import api from '../../services/api.js'
 
 const NewNote=({match,history})=>{
