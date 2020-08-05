@@ -49,15 +49,11 @@ const Login = ({history})=>{
                  ></input>
              
                 <button type="submit" className="login-button button">Login</button>
-               
             </form>
-
-           
-
             </div>
         <h2>Ainda não é cadastrado ? Clique no botão abaixo e junte-sea nós!</h2>
-
         <button type="button" onClick={e => handleSignInButton(e)} className="signin-button button">Sign In</button>
+
 
     </div>)
 }

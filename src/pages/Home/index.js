@@ -25,6 +25,7 @@ let history = useHistory();
 
     }
     async function handleUpdate(id){
+        localStorage.setItem("userId", match.params.userId)
         history.push(`/${id}/update`);
 
 
@@ -34,11 +35,11 @@ let history = useHistory();
 
     return (<div className="container" >
  
-           <button onClick={handleCreation}>Criar Anotação</button>
+           <button onClick={handleCreation} className="creation-button">Criar Anotação</button>
     
 
         {notes.length > 0 ? (
-            <ul>
+            <ul className="notes-list">
                 {notes.map((note) =>
                     <a key={note._id} onClick={()=>{handleUpdate(note._id)}}>
                     <li className="note-container">

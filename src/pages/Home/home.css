@@ -5,17 +5,12 @@
     justify-content: center;
     align-items: center;
 }
-button{
+.creation-button{
     position:absolute;
     top:0;
 }
 
-ul{
-    list-style: none;
-    display: grid;
-    grid-template-columns: 300px 300px 300px 300px;
-    grid-gap: 100px;
-}
+
 .note-title {
     font-size: 60px;
 }
@@ -30,3 +25,13 @@ ul{
  .post-container{
     padding:0 30px 0 30px;
 } 
+
+.notes-list{
+    margin-top: 20vh;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-gap: 100px;
+    position: absolute;
+    top:0;
+}

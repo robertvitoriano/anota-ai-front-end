@@ -6,7 +6,7 @@ const UpdateNote = ({ history, match }) => {
 
     const [noteTitle, setNoteTitle] = useState('')
     const [noteBody, setNoteBody] = useState('')
-
+ 
 
     useEffect(() => {
         async function loadNote() {
@@ -26,24 +26,25 @@ const UpdateNote = ({ history, match }) => {
 
     
 
-    // const handleUpdate = async () => {
-    //     await api.patch('/notes/:id',{
-    //         title:updatedTitle,
-    //         body:updatedBody
-    //     },{
-    //         headers:{
-    //             userauth: localStorage.getItem('Authorization')
-    //         }
-    //     })
-
-
-    // }
+    const handleUpdate = async (e) => {
+        e.preventDefault();
+        await api.patch('/notes/'+match.params.noteId,{
+            title:noteTitle,
+            body:noteBody
+        },{
+            headers:{
+                userauth: localStorage.getItem('Authorization')
+            }
+        })
+        const userId = localStorage.getItem('userId')
+        history.push(`/user/${userId}`)
+    }
 
 
     return (
         <di className="container">
             <div className="note-card">
-                 <form className="note-card" >
+                 <form className="note-card" onSubmit={(e=>{handleUpdate(e)})}>
                     <input 
                     className="note-title" 
                     value={noteTitle} 
