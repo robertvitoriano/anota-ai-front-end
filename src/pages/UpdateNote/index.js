@@ -28,7 +28,7 @@ const UpdateNote = ({ history, match }) => {
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        await api.patch('/notes/'+match.params.noteId,{
+        await api.post('/notes/'+match.params.noteId,{
             title:noteTitle,
             body:noteBody
         },{
