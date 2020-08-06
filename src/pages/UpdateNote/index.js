@@ -39,6 +39,17 @@ const UpdateNote = ({ history, match }) => {
         const userId = localStorage.getItem('userId')
         history.push(`/user/${userId}`)
     }
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        await api.delete('/notes/' + match.params.noteId, {  
+            headers: {
+                userauth: localStorage.getItem('Authorization')
+            }
+        }
+    )
+        const userId = localStorage.getItem('userId')
+        history.push(`/user/${userId}`)
+    }
 
 
     return (
@@ -58,6 +69,10 @@ const UpdateNote = ({ history, match }) => {
                     </textarea>
                     <button>Alterar</button>
                 </form>
+                <button onClick={(e)=>{
+                         handleDelete(e)
+                }}>Deletar</button>
+
             </div>
         </di>
     )
