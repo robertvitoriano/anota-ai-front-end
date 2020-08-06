@@ -41,7 +41,7 @@ let history = useHistory();
         {notes.length > 0 ? (
             <ul className="notes-list">
                 {notes.map((note) =>
-                    <a key={note._id} onClick={()=>{handleUpdate(note._id)}}>
+                    <a key={note._id} onClick={()=>{handleUpdate(note._id)}}  href="#">
                     <li className="note-container">
                         <div className="post-title">
                             <h2>{note.title}</h2>

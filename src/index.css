@@ -1,0 +1,11 @@
+textarea {
+   resize: none;
+}
+
+a{
+    cursor:pointer;
+}
+
+button{
+    cursor:pointer;
+}
