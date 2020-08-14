@@ -46,7 +46,7 @@ let history = useHistory();
                         <div className="post-title">
                             <h2>{note.title}</h2>
                             </div>
-                    <div className="note-body">
+                            <div className="note-body-list">
                     <p>{note.body}</p>
                         </div>
                     </li>

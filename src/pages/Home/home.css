@@ -15,15 +15,28 @@
     font-size: 40px;
     width: fit-content;
 }
+.note-body-list {
+    font-size: 20px;
+    border: black solid 1px;
+    height: 200px;
+    width:300px;
+    overflow:hidden;
+}
+
+p{
+    word-wrap: break-word;
+}
+h2{
+    
+  white-space: nowrap;
+}
 .note-body {
     font-size: 20px;
     border: black solid 1px;
     height: 200px;
     width:300px;
-    overflow: hidden;
-
+    /* overflow:; */
 }
-
  .note-container{
     padding:0 30px 0 30px;
     display: flex;
