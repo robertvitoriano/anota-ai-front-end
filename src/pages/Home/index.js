@@ -43,7 +43,7 @@ let history = useHistory();
                 {notes.map((note) =>
                     <a key={note._id} onClick={()=>{handleUpdate(note._id)}}  href="#">
                     <li className="note-container">
-                        <div className="post-title">
+                        <div className="note-title">
                             <h2>{note.title}</h2>
                             </div>
                             <div className="note-body-list">

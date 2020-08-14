@@ -1,17 +1,25 @@
-.container{
+
+.login-container{
     height: 100vh;
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url("typewriter.jpg");
+    background-position:-10px -25vh;
   
 }
 
 .form-container{
-    border: 4px solid gray;
+    border: 4px solid #907E70;
+    border-radius:4%;
     padding: 10px;;
     
 }
+.welcome-message,.signup-message{
+    color:#102631;
+}
+
 
 form{
   width:30vw;
@@ -40,8 +48,11 @@ input{
 .login-button{
     width: 40%;
     height: 4vh;
+    background-color:#E4DFC1;
 }
 .signin-button{
     width: 12%;
     height: 4vh;
+    background-color:#E4DFC1;
+
 }

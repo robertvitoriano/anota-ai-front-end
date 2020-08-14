@@ -13,7 +13,9 @@
 
 .note-title {
     font-size: 40px;
-    width: fit-content;
+     width:300px;
+    overflow:hidden;
+
 }
 .note-body-list {
     font-size: 20px;
@@ -27,7 +29,7 @@ p{
     word-wrap: break-word;
 }
 h2{
-    
+
   white-space: nowrap;
 }
 .note-body {

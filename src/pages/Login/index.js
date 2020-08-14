@@ -30,8 +30,8 @@ const Login = ({history})=>{
     }
 
 
-    return(<div className="container">
-            <h1>Seja Bem-vindo(a)</h1>
+    return(<div className="login-container">
+            <h1 className="welcome-message">Seja Bem-vindo(a)</h1>
         <div className="form-container">
             <form className="login-form" onSubmit={handleSubmit}>
                 <input className="email-input" 
@@ -51,7 +51,7 @@ const Login = ({history})=>{
                 <button type="submit" className="login-button button">Login</button>
             </form>
             </div>
-        <h2>Ainda não é cadastrado ? Clique no botão abaixo e junte-sea nós!</h2>
+        <h2 className="signup-message">Ainda não é cadastrado ? Clique no botão abaixo e junte-sea nós!</h2>
         <button type="button" onClick={e => handleSignInButton(e)} className="signin-button button">Sign In</button>
 
 
