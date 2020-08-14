@@ -52,7 +52,7 @@ const Login = ({history})=>{
             </form>
             </div>
         <h2 className="signup-message">Ainda não é cadastrado ? Clique no botão abaixo e junte-sea nós!</h2>
-        <button type="button" onClick={e => handleSignInButton(e)} className="signin-button button">Sign In</button>
+        <button type="button" onClick={e => handleSignInButton(e)} className="signup-button button">Sign Up</button>
 
 
     </div>)
