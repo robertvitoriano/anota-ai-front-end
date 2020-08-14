@@ -1,15 +1,18 @@
 
- .container{
+ .home-container{
     width:100vw;
+    height:100vh;
     display:flex;
     justify-content: center;
     align-items: center;
+    background-image: url("board.jpg");
+    background-repeat: repeat-y;
 }
 .creation-button{
     position:absolute;
     top:0;
+    background-color: #CACBC6;
 }
-
 
 .note-title {
     font-size: 40px;
@@ -23,6 +26,7 @@
     height: 200px;
     width:300px;
     overflow:hidden;
+    background-color: #C6C1AE;
 }
 
 p{
@@ -64,7 +68,10 @@ a{
     text-decoration: none;
     color: black;
 }
-
+.next-button{
+    width: fit-content;
+    height: fit-content;
+}
 a:hover{
     color: grey;
 }

@@ -13,7 +13,7 @@ const NewNote=({match,history})=>{
          await api.post('/notes', { title, body }, {headers: { userauth: localStorage.getItem("Authorization")}})
          history.push(`/user/${match.params.userId}`)
      }
-    return(<div className="container">
+    return(<div className="new-note-container">
         <div className="note-container">
             <form onSubmit={handleSubmit}>
             <input placeholder="digite o titulo da sua anotação" 

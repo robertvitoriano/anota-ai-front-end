@@ -33,11 +33,13 @@ let history = useHistory();
 
 
 
-    return (<div className="container" >
+    return (<div className="home-container" >
  
            <button onClick={handleCreation} className="creation-button">Criar Anotação</button>
     
-
+        <div className="next-button">
+        <img src="arrow.png"/>
+        </div>
         {notes.length > 0 ? (
             <ul className="notes-list">
                 {notes.map((note) =>
