@@ -2,3 +2,8 @@
     width: 40%;
     height: 4vh;
 }
+
+.sign-up-container{
+  background-image: url('./writing-1209121_1920.jpg');
+  background-size: cover;
+}

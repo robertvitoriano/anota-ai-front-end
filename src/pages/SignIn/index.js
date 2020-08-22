@@ -37,7 +37,7 @@ const Login = ({ history }) => {
     }
 
 
-    return (<div className="container">
+    return (<div className="sign-up-container">
         <h1>Faça seu cadastro e comece a criar</h1>
         <div className="form-container">
             <input className="name-input"
