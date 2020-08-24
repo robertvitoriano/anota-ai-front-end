@@ -26,7 +26,6 @@ function Header ({match}){
     return(
         <div className="header-container">
             
-            <div className="header-transparency"></div>
             <div className="header-content">
                 
             <button onClick={handleCreation} className="creation-button">Criar Anotação</button>
