@@ -54,7 +54,7 @@ const UpdateNote = ({ history, match }) => {
 
 
     return (
-        <di className="container">
+        <di className="update-container">
             <Header match={match}></Header>
             <div className="note-card">
                  <form className="note-card" onSubmit={(e=>{handleUpdate(e)})}>
