@@ -2,6 +2,8 @@ import React,{useEffect,useState} from 'react';
 import {useHistory} from 'react-router-dom'
 import './home.css'
 import api from '../../services/api'
+import Header from './../../components/Header'
+
 const Home =  ({match})=>{
  const [notes,setNotes] = useState([]);
 
@@ -18,12 +20,9 @@ let history = useHistory();
            
         }
         loadNotes();
-    }, [match.params.userId])
+    }, [])
 
-    async function handleCreation(){
-        history.push(`/${match.params.userId}/creation`,);
 
-    }
     async function handleUpdate(id){
         localStorage.setItem("userId", match.params.userId)
         history.push(`/${id}/update`);
@@ -34,8 +33,7 @@ let history = useHistory();
 
 
     return (<div className="home-container" >
- 
-           <button onClick={handleCreation} className="creation-button">Criar Anotação</button>
+           <Header match = {match}></Header>
     
         <div className="next-button">
         <img src="arrow.png"/>
