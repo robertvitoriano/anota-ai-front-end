@@ -1,0 +1,16 @@
+.sign-up-container{
+  background-image: url('./writing-1209121_1920.jpg');
+  background-size: cover;
+   height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sign-up-button{
+    width: 40%;
+    background-color:#E4DFC1;
+    padding:1rem 1rem 1rem 1rem;
+  }
+

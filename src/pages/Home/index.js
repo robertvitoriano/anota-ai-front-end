@@ -83,7 +83,7 @@ const Home = ({ match }) => {
 
         <div className="home-content">
           {notes.length>5?
-          
+
           (<div className="next-button" onClick={e=>handleNextNotesButton(e)}>
             <img className="arrow-icon" src={arrow} />
           </div>):''}
@@ -113,7 +113,7 @@ const Home = ({ match }) => {
               <h1>Nenhuma anotação ainda</h1>
             )}
           </div>
-          {initialNote >= 5 ? (
+          {notes.length>5 ? (
             <div
               className="previous-button"
               onClick={handlePreviousNotesButton}

@@ -25,7 +25,7 @@ const Login = ({history})=>{
     }
     function handleSignInButton(event){
         event.preventDefault()
-        history.push(`/user/signin`)
+        history.push(`/user/signup`)
 
     }
 
