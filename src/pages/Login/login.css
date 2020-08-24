@@ -46,13 +46,11 @@ input{
 }
 
 .login-button{
-    width: 40%;
-    height: 4vh;
+    padding: 1rem 2rem 1rem 2rem;
     background-color:#E4DFC1;
 }
 .signup-button{
-    width: 12%;
-    height: 4vh;
+    padding: 1rem 2rem 1rem 2rem;
     background-color:#E4DFC1;
 
 }
