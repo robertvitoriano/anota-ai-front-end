@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import api from './../../services/api'
+import Header from '../../components/Header'
 
 import './update-note.css'
 const UpdateNote = ({ history, match }) => {
@@ -54,6 +55,7 @@ const UpdateNote = ({ history, match }) => {
 
     return (
         <di className="container">
+            <Header match={match}></Header>
             <div className="note-card">
                  <form className="note-card" onSubmit={(e=>{handleUpdate(e)})}>
                     <input 

@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import './new-note.css'
 import api from '../../services/api.js'
+import Header from './../../components/Header'
 
 const NewNote=({match,history})=>{
     const[body,setBody] = useState('');
@@ -14,6 +15,7 @@ const NewNote=({match,history})=>{
          history.push(`/user/${match.params.userId}`)
      }
     return(<div className="new-note-container">
+        <Header match={match}></Header>
         <div className="note-container">
             <form onSubmit={handleSubmit}>
             <input placeholder="digite o titulo da sua anotação" 
