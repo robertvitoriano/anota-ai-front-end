@@ -38,10 +38,14 @@ const Home = ({ match }) => {
     }
 
     function handleNextNotesButton() {
-
-
+       setInitialNote(initialNote + 6);
 
     }
+        function handlePreviousNotesButton() {
+
+                setInitialNote(initialNote-6);
+
+        }
 
 
     return (
@@ -49,28 +53,26 @@ const Home = ({ match }) => {
         <Header match={match}></Header>
 
         <div className="home-content">
-          <div className="next-button">
+          <div className="next-button" onClick={handleNextNotesButton}>
             <img className="arrow-icon" src={arrow} />
           </div>
           <div className="notes-container">
-            {notes.length > 0 ? (
-
+            {notes.length > initialNote ? (
               <ul className="notes-list">
-                {notes.map((note,index) => (
-                    
+                {notes.map((note, index) => (
                   <a
-                    key={note._id}
+                    key={notes[index + initialNote]._id}
                     onClick={() => {
-                      handleUpdate(note._id);
+                      handleUpdate(notes[index + initialNote]._id);
                     }}
                     href="#"
                   >
                     <li className="note-container">
                       <div className="note-title">
-                        <h2>{note.title}</h2>
+                        <h2>{notes[index + initialNote].title}</h2>
                       </div>
                       <div className="note-body-list">
-                        <p>{note.body}</p>
+                        <p>{notes[index + initialNote].body}</p>
                       </div>
                     </li>
                   </a>
@@ -80,9 +82,16 @@ const Home = ({ match }) => {
               <h1>Nenhuma anotação ainda</h1>
             )}
           </div>
-          <div className="previous-button">
-            <img className="arrow-icon previous-icon" src={arrow} />
-          </div>
+          {initialNote > 5 ? (
+            <div
+              className="previous-button"
+              onClick={handlePreviousNotesButton}
+            >
+              <img className="arrow-icon previous-icon" src={arrow} />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     );
