@@ -98,7 +98,7 @@ const Home = ({ match }) => {
                     }}
                     href="#"
                   >
-                    <li className="note-container">
+                    <li >
                       <div className="note-title">
                         <h2>{note.title}</h2>
                       </div>

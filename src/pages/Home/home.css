@@ -15,9 +15,11 @@
     width: 100%;
 }
 .notes-container{
-    width:60%;
+    width:55%;
     margin:0 auto;
     text-align: center;
+    /* background-color: aqua; */
+    
 }
 .arrow-icon{
     width:8rem;
