@@ -25,17 +25,27 @@ const Home = ({ match }) => {
                 },
             })
       
+            if (response.data[initialNote])
+              shownNotesRef.current.push(response.data[initialNote]);
 
-            shownNotesRef.current.push(
-              response.data[initialNote],
-              response.data[initialNote + 1],
-              response.data[initialNote + 2],
-              response.data[initialNote + 3],
-              response.data[initialNote + 4],
-              response.data[initialNote + 5]
-            );
-            
+            if (response.data[initialNote+1])
+              shownNotesRef.current.push(response.data[initialNote+1]);
+
+            if (response.data[initialNote+2])
+             shownNotesRef.current.push(response.data[initialNote+2]);
+
+            if (response.data[initialNote+3])
+             shownNotesRef.current.push(response.data[initialNote+3]);
+
+            if (response.data[initialNote+4])
+            shownNotesRef.current.push(response.data[initialNote+4]);
+
+            if (response.data[initialNote+5])
+            shownNotesRef.current.push(response.data[initialNote+5]);
+
+              
             shownNotesRef.current.map((note,index)=>{
+                console.log(note);
                 if(note===undefined){
                     response.data.splice(index);
                 }
@@ -83,7 +93,7 @@ const Home = ({ match }) => {
             <img className="arrow-icon" src={arrow} />
           </div>
           <div className="notes-container">
-            {notes.length > initialNote ? (
+            {notes.length > 0 ? (
               <ul className="notes-list">
                 {notes.map((note, index) => (
                   <a
