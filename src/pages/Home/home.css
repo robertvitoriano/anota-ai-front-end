@@ -8,6 +8,24 @@
     background-image: url("board.jpg");
     background-repeat: repeat-y;
 }
+
+.home-content{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content:space-between;
+}
+.notes-container{
+    width:60%;
+}
+.arrow-icon{
+    width:8rem;
+}
+.previous-icon{
+      transform: scaleX(-1);
+
+}
+
 .creation-button{
 
     background-color: #CACBC6;
@@ -57,7 +75,7 @@ h2{
     margin-top: 20vh;
     list-style: none;
     display: grid;
-    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-columns: 300px 300px 300px;
     grid-gap: 100px;
     position: absolute;
     top:0;
