@@ -32,16 +32,16 @@ const Home = ({ match }) => {
               shownNotesRef.current.push(response.data[initialNote+1]);
 
             if (response.data[initialNote+2])
-             shownNotesRef.current.push(response.data[initialNote+2]);
+              shownNotesRef.current.push(response.data[initialNote+2]);
 
             if (response.data[initialNote+3])
-             shownNotesRef.current.push(response.data[initialNote+3]);
+              shownNotesRef.current.push(response.data[initialNote+3]);
 
             if (response.data[initialNote+4])
-            shownNotesRef.current.push(response.data[initialNote+4]);
+              shownNotesRef.current.push(response.data[initialNote+4]);
 
             if (response.data[initialNote+5])
-            shownNotesRef.current.push(response.data[initialNote+5]);
+              shownNotesRef.current.push(response.data[initialNote+5]);
 
             
             setNotes(shownNotesRef.current);
