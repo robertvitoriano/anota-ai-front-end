@@ -34,6 +34,7 @@ const Home = ({ match }) => {
               response.data[initialNote + 4],
               response.data[initialNote + 5]
             );
+            
             shownNotesRef.current.map((note,index)=>{
                 if(note===undefined){
                     response.data.splice(index);
