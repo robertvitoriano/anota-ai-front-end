@@ -19,7 +19,7 @@ function Header ({match}){
             console.log(e);
 
         }
-
+        localStorage.removeItem("Authorization")
         history.push(`/`);
     }
     

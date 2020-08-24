@@ -1,45 +1,37 @@
-.header-container{
-    height: 60px;
-    width:100vw;
-    position:absolute;
-    top:0;
-    justify-content: center;
-   
+.header-container {
+  height: 60px;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  justify-content: center;
 }
-.header-transparency{
-    height: 100%;
-    width:100%;
-    background-color:rgb(192, 192, 192);
-    opacity: 60%;
+.header-transparency {
+  height: 100%;
+  width: 100%;
 }
-.header-content{
-    height: 100%;
-    width:60vw;
-    display: flex;
-    justify-content: space-between;
-    position:absolute;
-    top:0;
-    right:0;
-
-
-
-
+.header-content {
+  height: 100%;
+  width: 60vw;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-.logout-button{
-    position:absolute;
-    right:0 ;
-    background-color:rgb(192, 192, 192);
-    height:100%;
-    padding:0 2rem 0 2rem;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    box-shadow: black 1px 1px 1px 1px;
+.logout-button {
+  position: absolute;
+  right: 0;
+  background-color: rgb(192, 192, 192);
+  height: 100%;
+  padding: 0 2rem 0 2rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
 
+  box-shadow: black 1px 1px 1px 1px;
 }
 
-.logout-button:hover{
-        background-color:rgba(192, 192, 192, 0.589);
-
+.logout-button:hover {
+  background-color: rgba(192, 192, 192, 0.589);
 }

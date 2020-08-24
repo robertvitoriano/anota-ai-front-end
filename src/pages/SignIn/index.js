@@ -22,18 +22,10 @@ const Login = ({ history }) => {
         })
         console.log(response.data);
 
-      await api.post('/users/login', {
-            email: email,
-            password: password,
 
-        },{
-            headers:{
-                userauth: response.data.token
-            }
-        })
     
 
-        history.push(`/user/${response.data.user._id}`);
+        history.push(`/`);
     }
 
 
