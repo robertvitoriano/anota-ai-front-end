@@ -24,6 +24,8 @@ const Home = ({ match }) => {
                     userauth: localStorage.getItem("Authorization"),notes
                 },
             })
+      
+
             shownNotesRef.current.push(
               response.data[initialNote],
               response.data[initialNote + 1],
@@ -32,11 +34,22 @@ const Home = ({ match }) => {
               response.data[initialNote + 4],
               response.data[initialNote + 5]
             );
+            shownNotesRef.current.map((note,index)=>{
+                if(note===undefined){
+                    response.data.splice(index);
+                }
+            })
+            
             setNotes(shownNotesRef.current);
+             
+
+           shownNotesRef.current = [];
 
         }
         loadNotes();
-    },initialNote)
+        console.log(initialNote);
+
+    },[initialNote])
 
 
     async function handleUpdate(id) {
@@ -46,23 +59,26 @@ const Home = ({ match }) => {
 
     }
 
-    function handleNextNotesButton() {
-       setInitialNote(initialNote + 6);
+    function handleNextNotesButton(e) {
+        e.preventDefault()
+             setInitialNote(initialNote + 5);
+
+        
 
     }
         function handlePreviousNotesButton() {
 
-                setInitialNote(initialNote-6);
+                setInitialNote(initialNote-5);
 
         }
 
 
     return (
       <div className="home-container">
-        <Header match={match}></Header>
+        <Header match={match}>{initialNote}</Header>
 
         <div className="home-content">
-          <div className="next-button" onClick={handleNextNotesButton}>
+          <div className="next-button" onClick={e=>handleNextNotesButton(e)}>
             <img className="arrow-icon" src={arrow} />
           </div>
           <div className="notes-container">
@@ -70,18 +86,18 @@ const Home = ({ match }) => {
               <ul className="notes-list">
                 {notes.map((note, index) => (
                   <a
-                    key={notes[index]._id}
+                    key={note._id}
                     onClick={() => {
-                      handleUpdate(notes[index]._id);
+                      handleUpdate(note._id);
                     }}
                     href="#"
                   >
                     <li className="note-container">
                       <div className="note-title">
-                        <h2>{notes[index].title}</h2>
+                        <h2>{note.title}</h2>
                       </div>
                       <div className="note-body-list">
-                        <p>{notes[index].body}</p>
+                        <p>{note.body}</p>
                       </div>
                     </li>
                   </a>
@@ -91,7 +107,7 @@ const Home = ({ match }) => {
               <h1>Nenhuma anotação ainda</h1>
             )}
           </div>
-          {initialNote > 5 ? (
+          {initialNote >= 5 ? (
             <div
               className="previous-button"
               onClick={handlePreviousNotesButton}
