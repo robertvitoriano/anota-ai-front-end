@@ -43,13 +43,6 @@ const Home = ({ match }) => {
             if (response.data[initialNote+5])
             shownNotesRef.current.push(response.data[initialNote+5]);
 
-              
-            shownNotesRef.current.map((note,index)=>{
-                console.log(note);
-                if(note===undefined){
-                    response.data.splice(index);
-                }
-            })
             
             setNotes(shownNotesRef.current);
              
