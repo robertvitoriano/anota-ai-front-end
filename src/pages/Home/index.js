@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import { useHistory } from 'react-router-dom'
 import './home.css'
 import api from '../../services/api'
@@ -10,6 +10,7 @@ const Home = ({ match }) => {
     const [notes, setNotes] = useState([]);
     const[initialNote,setInitialNote] = useState(0);
     const [lastNote, setLastNote] = useState(7);
+    const shownNotesRef = useRef([]);
 
     
 
@@ -20,14 +21,22 @@ const Home = ({ match }) => {
         async function loadNotes() {
             const response = await api.get('/notes', {
                 headers: {
-                    userauth: localStorage.getItem("Authorization"),
+                    userauth: localStorage.getItem("Authorization"),notes
                 },
             })
-            setNotes(response.data);
+            shownNotesRef.current.push(
+              response.data[initialNote],
+              response.data[initialNote + 1],
+              response.data[initialNote + 2],
+              response.data[initialNote + 3],
+              response.data[initialNote + 4],
+              response.data[initialNote + 5]
+            );
+            setNotes(shownNotesRef.current);
 
         }
         loadNotes();
-    }, [])
+    },initialNote)
 
 
     async function handleUpdate(id) {
@@ -61,18 +70,18 @@ const Home = ({ match }) => {
               <ul className="notes-list">
                 {notes.map((note, index) => (
                   <a
-                    key={notes[index + initialNote]._id}
+                    key={notes[index]._id}
                     onClick={() => {
-                      handleUpdate(notes[index + initialNote]._id);
+                      handleUpdate(notes[index]._id);
                     }}
                     href="#"
                   >
                     <li className="note-container">
                       <div className="note-title">
-                        <h2>{notes[index + initialNote].title}</h2>
+                        <h2>{notes[index].title}</h2>
                       </div>
                       <div className="note-body-list">
-                        <p>{notes[index + initialNote].body}</p>
+                        <p>{notes[index].body}</p>
                       </div>
                     </li>
                   </a>
