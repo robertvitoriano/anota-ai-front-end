@@ -82,9 +82,11 @@ const Home = ({ match }) => {
         <Header match={match}>{initialNote}</Header>
 
         <div className="home-content">
-          <div className="next-button" onClick={e=>handleNextNotesButton(e)}>
+          {notes.length>5?
+          
+          (<div className="next-button" onClick={e=>handleNextNotesButton(e)}>
             <img className="arrow-icon" src={arrow} />
-          </div>
+          </div>):''}
           <div className="notes-container">
             {notes.length > 0 ? (
               <ul className="notes-list">
