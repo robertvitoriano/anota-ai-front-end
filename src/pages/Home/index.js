@@ -4,7 +4,7 @@ import './home.css'
 import api from '../../services/api'
 import Header from './../../components/Header'
 import arrow from './arrow.png'
-import hamburguerMenu from './hamburguer-menu.png'
+import hamburguerMenu from './Component 1 – 1@2x.png'
 
 
 const Home = ({ match }) => {
