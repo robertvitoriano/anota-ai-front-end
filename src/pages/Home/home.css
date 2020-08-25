@@ -95,3 +95,45 @@ a{
 a:hover{
     color: grey;
 }
+
+
+@media screen and (max-width: 600px) {
+    .notes-list{
+    margin-top: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    position: absolute;
+    top:0;
+}
+
+body{
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-image: none;
+    background-color: #d6d3c8;
+}
+
+ .home-container{
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-image: none;
+    background-color: #d6d3c8;
+    background-image: none;
+    background-repeat: repeat-y;
+}
+.arrow-icon{
+    display: none;
+}
+.previous-icon{
+    display: none;
+
+}
+
+
+}
