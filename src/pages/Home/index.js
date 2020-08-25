@@ -80,7 +80,7 @@ const Home = ({ match }) => {
     return (
       <div className="home-container">
         <Header match={match}>{initialNote}</Header>
-
+         <div className="hamburguer-menu"></div>
         <div className="home-content">
           {notes.length>5?
 

@@ -97,6 +97,7 @@ a:hover{
 }
 
 
+
 @media screen and (max-width: 600px) {
     .notes-list{
     margin-top: 0;
@@ -134,11 +135,17 @@ body{
 
 .notes-container{
     width:70%;
-    margin:0 auto;
     text-align: center;
     /* background-color: aqua; */
     
 }
-
+.hamburguer-menu{
+    width:6em;
+    height:5em;
+    background-color: blue;
+    position:absolute;
+    top:0;
+    left: 0;
+}
 
 }
