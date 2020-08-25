@@ -142,10 +142,14 @@ body{
 .hamburguer-menu{
     width:6em;
     height:5em;
-    background-color: blue;
     position:absolute;
     top:0;
     left: 0;
+}
+
+.hamburguer-menu-icon{
+    width:80px;
+
 }
 
 }

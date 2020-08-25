@@ -4,6 +4,7 @@ import './home.css'
 import api from '../../services/api'
 import Header from './../../components/Header'
 import arrow from './arrow.png'
+import hamburguerMenu from './hamburguer-menu.png'
 
 
 const Home = ({ match }) => {
@@ -80,7 +81,7 @@ const Home = ({ match }) => {
     return (
       <div className="home-container">
         <Header match={match}>{initialNote}</Header>
-         <div className="hamburguer-menu"></div>
+         <div className="hamburguer-menu"><img className="hamburguer-menu-icon"src={hamburguerMenu}/></div>
         <div className="home-content">
           {notes.length>5?
 
