@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from './../../services/api'
 import Header from '../../components/Header'
-
+import Footer from './../../components/Footer'
 import './update-note.css'
 const UpdateNote = ({ history, match }) => {
 
@@ -76,6 +76,7 @@ const UpdateNote = ({ history, match }) => {
                 }}>Deletar</button>
 
             </div>
+            <Footer></Footer>
         </di>
     )
 }

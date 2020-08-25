@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import api from '../../services/api'
+import Footer from './../../components/Footer'
 
 import './sigin-in.css'
 const Login = ({ history }) => {
@@ -62,6 +63,7 @@ const Login = ({ history }) => {
                 <button type="submit" className="sign-up-button">Cadastrar</button>
             </form>
         </div>
+        <Footer></Footer>
     </div>)
 }
 

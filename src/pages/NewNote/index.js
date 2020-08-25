@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './new-note.css'
 import api from '../../services/api.js'
 import Header from './../../components/Header'
+import Footer from './../../components/Footer'
 
 const NewNote=({match,history})=>{
     const[body,setBody] = useState('');
@@ -35,7 +36,7 @@ const NewNote=({match,history})=>{
             <button type="submit">Salvar Anotação</button>
             </form>
         </div>
-
+        <Footer></Footer>
 
     </div>)
 }

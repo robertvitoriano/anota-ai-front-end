@@ -62,9 +62,7 @@ const Login = ({ history }) => {
       >
         Sign Up
       </button>
-      <h2 className="signup-message">
-        <strong>Feito por Robert da Silva Vitoriano</strong>
-      </h2>
+ 
       <Footer></Footer>
     </div>
   );

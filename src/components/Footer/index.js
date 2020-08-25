@@ -1,13 +1,16 @@
 import React from 'react'
 
+import './index.css'
 
 function Footer (){
 
 
 
     return(
-        <div>
-            <h1>Hello World</h1>
+        <div className="footer-container">
+            <h2 >
+                <strong>Feito por Robert da Silva Vitoriano</strong>
+            </h2>
         </div>
     )
 }

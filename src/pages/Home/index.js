@@ -1,10 +1,12 @@
 import React, { useEffect, useState,useRef } from 'react';
 import { useHistory } from 'react-router-dom'
 import './home.css'
-import api from '../../services/api'
-import Header from './../../components/Header'
-import arrow from './arrow.png'
-import hamburguerMenu from './Component 1 – 1@2x.png'
+import api from '../../services/api';
+import Header from './../../components/Header';
+import Footer from './../../components/Footer'
+import arrow from './arrow.png';
+import hamburguerMenu from './Component 1 – 1@2x.png';
+
 
 
 const Home = ({ match }) => {
@@ -126,6 +128,7 @@ const Home = ({ match }) => {
             ""
           )}
         </div>
+        <Footer></Footer>
       </div>
     );
 }
