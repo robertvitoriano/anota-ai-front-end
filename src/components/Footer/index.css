@@ -6,3 +6,16 @@
     position:absolute;
     bottom:0;
 }
+
+@media screen and (max-width: 370px) {
+    .footer-container{
+    background-color: #959586;
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    position:absolute;
+    bottom:-20;
+}
+
+
+}
