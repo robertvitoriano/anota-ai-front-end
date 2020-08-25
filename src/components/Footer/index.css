@@ -10,11 +10,13 @@
 @media screen and (max-width: 370px) {
     .footer-container{
     background-color: #959586;
-    width:100vw;
+    width:115vw;
     display: flex;
     justify-content: center;
     position:absolute;
-    top:765px;
+    bottom:-4rem;
+    font-size:0.8rem;
+  
 }
 
 
