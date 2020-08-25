@@ -59,7 +59,7 @@ input{
 @media screen and (max-width: 600px) {
 
 .welcome-message,.signup-message{
-    font-size: 1rem;
+    font-size: 0.8rem;
     
 }
 .form-container{
