@@ -25,6 +25,7 @@ const Home = ({ match }) => {
                     userauth: localStorage.getItem("Authorization"),notes
                 },
             })
+            
       
             if (response.data[initialNote])
               shownNotesRef.current.push(response.data[initialNote]);
