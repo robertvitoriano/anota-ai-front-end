@@ -23,8 +23,10 @@
 .notes-container{
     width:55%;
     margin:0 auto;
-    margin-left:19.5vw;
     text-align: center;
+    margin-right: 32vw;;
+    position:absolute;
+    top:-10vh;
     
     /* background-color: aqua; */
     
@@ -58,14 +60,16 @@
     font-size: 40px;
      width:300px;
     overflow:hidden;
+    display: flex;
+    justify-content: center;
 
 }
 .note-body-list {
     box-sizing: border-box;
-    font-size: 20px;
-    border: #C6C1AE solid 6px;
-    height: 200px;
-    width:300px;
+    font-size: 2rem;
+    border: #9b9686 solid 8px;
+    height: 26vh;
+    width:20vw;
     overflow:hidden;
     background-color: rgb(228, 208, 208);
     border-radius: 4%;
@@ -79,15 +83,9 @@ h2{
 
   white-space: nowrap;
 }
-.note-body {
-    font-size: 20px;
-    border: black solid 1px;
-    height: 200px;
-    width:300px;
-    /* overflow:; */
-}
+
  .note-container{
-    padding:0 30px 0 30px;
+    /* padding:0 30px 0 30px; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -95,14 +93,12 @@ h2{
 
 } 
 
-
-
 .notes-list{
     margin-top: 20vh;
     list-style: none;
     display: grid;
-    grid-template-columns: 20rem 20rem 20rem;
-    grid-gap: 100px;
+    grid-template-columns: 20vw 20vw 20vw;
+    grid-gap: 8%;
     position: absolute;
     top:0;
 }
