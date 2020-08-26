@@ -7,6 +7,9 @@ function Header ({match}){
     async function handleCreation() {
         history.push(`/${match.params.userId}/creation`);
     }
+    async function handleCategories(){
+        
+    }
     async function handleLogout() {
         try{
             await api.post('/users/logout', {
@@ -28,7 +31,9 @@ function Header ({match}){
             
             <div className="header-content">
                 <a onClick={handleLogout} className=" header-button" >Home</a>
+                <div className="categories-drop-down-menu">
                 <a onClick={handleLogout} className=" header-button" >Categorias</a>
+                </div>
             <button onClick={handleCreation} className="creation-button">Criar Anotação</button>
                 <a onClick={handleLogout} className=" header-button">LOGOUT</a>
             </div>
