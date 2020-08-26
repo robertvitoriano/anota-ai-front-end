@@ -27,9 +27,10 @@ function Header ({match}){
         <div className="header-container">
             
             <div className="header-content">
-                
+                <a onClick={handleLogout} className=" header-button" >Home</a>
+                <a onClick={handleLogout} className=" header-button" >Categorias</a>
             <button onClick={handleCreation} className="creation-button">Criar Anotação</button>
-                <a onClick={handleLogout} className="logout-button">LOGOUT</a>
+                <a onClick={handleLogout} className=" header-button">LOGOUT</a>
             </div>
         </div>
     )
