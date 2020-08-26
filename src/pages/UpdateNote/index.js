@@ -59,14 +59,14 @@ const UpdateNote = ({ history, match }) => {
             <div className="note-card">
                  <form className="note-card" onSubmit={(e=>{handleUpdate(e)})}>
                     <input 
-                    className="note-title" 
+                    className="note-title-creation" 
                     value={noteTitle} 
                     onChange={(e) => { 
                         const value = e.target.value;
                         setNoteTitle(value) 
 
                     }}/>
-                    <textarea className="note-body" value={noteBody} onChange={(event) => { setNoteBody(event.target.value)
+                    <textarea className="note-body-creation" value={noteBody} onChange={(event) => { setNoteBody(event.target.value)
                   }}>
                     </textarea>
                     <button>Alterar</button>

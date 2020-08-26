@@ -21,7 +21,7 @@ const NewNote=({match,history})=>{
             <form onSubmit={handleSubmit}>
             <input placeholder="digite o titulo da sua anotação" 
             name="title" 
-            className="note-title" 
+            className="note-title-creation" 
             value={title}
             onChange={e=>setTitle(e.target.value)}
             ></input>
@@ -29,7 +29,7 @@ const NewNote=({match,history})=>{
 
             <textarea placeholder=" digite o conteudo da sua anotação aqui" 
             name="body" 
-            className="note-body"
+            className="note-body-creation"
             value={body}
             onChange={e=>setBody(e.target.value)}
             ></textarea>
