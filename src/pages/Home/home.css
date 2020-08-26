@@ -9,23 +9,43 @@
     background-repeat: repeat-y;
 }
 
+
+
 .home-content{
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
 }
+.hamburguer-menu-icon{
+    display:none;
+
+}
 .notes-container{
     width:55%;
     margin:0 auto;
+    margin-left:19.5vw;
     text-align: center;
+    
     /* background-color: aqua; */
     
 }
 .arrow-icon{
     width:8rem;
 }
+.next-button{
+    width: fit-content;
+    height: fit-content;
+    position:absolute;
+    right:0.5rem;
+}
+.previous-button{
+    position:absolute;
+    left:.5rem;
+
+}
 .previous-icon{
       transform: scaleX(-1);
+     
 
 }
 
@@ -41,12 +61,15 @@
 
 }
 .note-body-list {
+    box-sizing: border-box;
     font-size: 20px;
-    border: black solid 1px;
+    border: #C6C1AE solid 6px;
     height: 200px;
     width:300px;
     overflow:hidden;
-    background-color: #C6C1AE;
+    background-color: rgb(228, 208, 208);
+    border-radius: 4%;
+
 }
 
 p{
@@ -88,10 +111,7 @@ a{
     text-decoration: none;
     color: black;
 }
-.next-button{
-    width: fit-content;
-    height: fit-content;
-}
+
 a:hover{
     color: grey;
 }
@@ -117,14 +137,7 @@ body{
     background-repeat: repeat-y;
 }
 
- .home-container{
-    width:100vw;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    background-image: none;
 
-}
 .arrow-icon{
     display: none;
 }

@@ -91,6 +91,7 @@ const Home = ({ match }) => {
           (<div className="next-button" onClick={e=>handleNextNotesButton(e)}>
             <img className="arrow-icon" src={arrow} />
           </div>):''}
+
           <div className="notes-container">
             {notes.length > 0 ? (
               <ul className="notes-list">
@@ -117,6 +118,7 @@ const Home = ({ match }) => {
               <h1>Nenhuma anotação ainda</h1>
             )}
           </div>
+          
           {initialNote>=5 ? (
             <div
               className="previous-button"
@@ -127,6 +129,7 @@ const Home = ({ match }) => {
           ) : (
             ""
           )}
+          
         </div>
         <Footer></Footer>
       </div>
