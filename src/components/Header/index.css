@@ -33,3 +33,33 @@
 .logout-button:hover {
   background-color: rgba(192, 192, 192, 0.589);
 }
+
+.categories-dropdown-menu{
+  height:30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position:relative;
+  z-index: 6;;
+  
+}
+
+.categories-button{
+  height:8vh;
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem 0 2rem;
+  margin-bottom:1px;
+
+}
+.dropdown-menu-item{
+  background-color: rgb(192, 192, 192);
+  height:8vh;
+  width:20vw;
+  display: flex;
+  justify-content: center;
+
+    
+  
+
+}

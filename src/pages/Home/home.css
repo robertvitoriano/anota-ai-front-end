@@ -56,7 +56,7 @@
     background-color: #CACBC6;
 }
 
-.note-title {
+.note-title-home {
     font-size: 1.5rem;
      width:300px;
     overflow:hidden;
@@ -64,7 +64,7 @@
     justify-content: center;
 
 }
-.note-body-list {
+.note-body-home {
     box-sizing: border-box;
     font-size: 2rem;
     border: #9b9686 solid 8px;
@@ -165,7 +165,7 @@ body{
 
 
 @media screen and (max-width: 1500px) {
-    .note-body-list {
+    .note-body-home {
     box-sizing: border-box;
     font-size: 2rem;
     border: #9b9686 solid 8px;
@@ -177,7 +177,7 @@ body{
 
 }
 
-.note-title {
+.note-title-home{
     font-size: 1.5rem;
      width:300px;
     overflow:hidden;

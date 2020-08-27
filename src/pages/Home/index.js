@@ -104,10 +104,10 @@ const Home = ({ match }) => {
                     href="#"
                   >
                     <li >
-                      <div className="note-title">
+                      <div className="note-title-home">
                         <h2>{note.title}</h2>
                       </div>
-                      <div className="note-body-list">
+                      <div className="note-body-home">
                         <p>{note.body}</p>
                       </div>
                     </li>

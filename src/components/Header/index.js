@@ -1,14 +1,42 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import './index.css'
 import {useHistory} from 'react-router-dom';
 import api from './../../services/api'
+
+
 function Header ({match}){
-    const history = useHistory()
+    const history = useHistory();
+    const[showDropdownMenu,setShowDropDownMenu] = useState(false);
+    const[createdCategories,setCreatedCategories] = useState([]);
+
+
+    useEffect(()=>{
+
+     async  function loadCategories(){
+         const response  =   await api.get(`/${match.params.userId}/categories`,{
+              headers: {
+                    userauth: localStorage.getItem("Authorization")
+                },
+            })
+            setCreatedCategories(response.data);
+        }
+      loadCategories();
+
+
+    },[])
     async function handleCreation() {
         history.push(`/${match.params.userId}/creation`);
     }
+
+    async function handleHome(){
+        history.push(`/user/${match.params.userId}`)
+    }
     async function handleCategories(){
-        
+        setShowDropDownMenu(!showDropdownMenu);
+    }
+
+    async function showCategory(){
+
     }
     async function handleLogout() {
         try{
@@ -30,9 +58,20 @@ function Header ({match}){
         <div className="header-container">
             
             <div className="header-content">
-                <a onClick={handleLogout} className=" header-button" >Home</a>
-                <div className="categories-drop-down-menu">
-                <a onClick={handleLogout} className=" header-button" >Categorias</a>
+                <a onClick={handleHome} className=" header-button" >Home</a>
+                <div className="categories-dropdown-menu">
+                    <a onClick={handleCategories} className=" header-button categories-button" >Categorias</a>
+                    {showDropdownMenu?(
+                    <div className='dropdown-menu'>
+                        <a onClick={handleCategories} className=" header-button dropdown-menu-item" >Nova Categoria</a>
+                        {createdCategories.length> 0 ?(
+                      <div className="created-categories">
+                {createdCategories.map((createdCategory, index) => (
+       <a onClick={showCategory} className=" header-button dropdown-menu-item" >{createdCategory.name}</a>))}
+                     </div>
+                        ):''}
+                    </div>
+                    ):''}
                 </div>
             <button onClick={handleCreation} className="creation-button">Criar Anotação</button>
                 <a onClick={handleLogout} className=" header-button">LOGOUT</a>
@@ -42,3 +81,5 @@ function Header ({match}){
 
 }
 export default Header;
+
+
