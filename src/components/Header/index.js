@@ -9,6 +9,7 @@ function Header({ match }) {
   const [createdCategories, setCreatedCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [showNewCategoryModal, setShowNewCategoryModal] = useState(false);
+    const [showTranslucent,setShowTranslucent] = useState(false);
 
   useEffect(() => {
     async function loadCategories() {
@@ -49,20 +50,35 @@ function Header({ match }) {
   }
   async function handleCategoryCreation(e) {
     e.preventDefault();
+      if (createdCategories.length < 8) {
+          try {
+              await api.post(
+                  "/" + match.params.userId + "/categories",
+                  {
+                      name: newCategory,
+                      authorId: match.params.userId,
+                  },
+                  {
+                      headers: {
+                          userauth: localStorage.getItem("Authorization"),
+                      },
+                  }
+              );
 
-    await api.post(
-      "/" + match.params.userId + "/categories",
-      {
-        name: newCategory,
-        authorId: match.params.userId,
-      },
-      {
-        headers: {
-          userauth: localStorage.getItem("Authorization"),
-        },
+          } catch (error) {
+              alert(error);
+
+          }
+
+      }else{
+          alert("Limite de categorias atingido");
       }
-    );
-      setShowNewCategoryModal(false)
+
+
+
+      setShowNewCategoryModal(false);
+      setShowTranslucent(false);
+      setNewCategory('');
   }
 
   return (
@@ -87,7 +103,10 @@ function Header({ match }) {
             >
               <a
                 className=" header-button dropdown-menu-item"
-                onClick={(e) => setShowNewCategoryModal(true)}
+                onClick={(e) => {
+                    setShowNewCategoryModal(true);
+                    setShowTranslucent(true);
+                }}
               >
                 Nova Categoria
               </a>
@@ -95,6 +114,7 @@ function Header({ match }) {
                 {createdCategories.map((createdCategory, index) => (
                   <a
                     onClick={showCategory}
+                    key={createdCategory._id}
                     className=" header-button dropdown-menu-item"
                   >
                     {createdCategory.name}
@@ -116,7 +136,10 @@ function Header({ match }) {
           <form onSubmit={handleCategoryCreation}>
             <div
               className="new-category-close-button"
-              onClick={(e) => setShowNewCategoryModal(false)}
+              onClick={(e) => {
+                  setShowNewCategoryModal(false);
+                  setShowTranslucent(false);
+                }}
             >
               X
             </div>
@@ -133,6 +156,9 @@ function Header({ match }) {
       ) : (
         ""
       )}
+      {showTranslucent?(
+      <div className="translucent"></div>
+          ):''}
     </>
   );
 }

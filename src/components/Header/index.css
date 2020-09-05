@@ -56,7 +56,7 @@
   background-color: #ac977b;
   position: absolute;
   border-radius: 30px;
-  z-index: 2;
+  z-index: 60;
 
 }
 
@@ -102,4 +102,12 @@
   position: absolute;
   text-shadow: 1px 1px 1px white;
   font-weight: bold;
+}
+.translucent{
+  width:100vw;
+  height: 100vh;
+  background-color:rgb(49, 49, 49);
+  opacity: 60%;
+  position:absolute;
+  z-index: 9  ;
 }
