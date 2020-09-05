@@ -34,7 +34,12 @@ function Header({ match }) {
     console.log(showDropdownMenu);
   }
 
-  async function showCategory() {}
+  async function showCategory(e) {
+      e.preventDefault();
+      
+
+
+  }
   async function handleLogout() {
     try {
       await api.post("/users/logout", {
