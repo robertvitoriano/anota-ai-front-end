@@ -39,8 +39,9 @@
 
 .dropdown-menu {
   display: none;
-  position:relative;
+  position:absolute;
   z-index: 3;
+  top:135px;
 }
 
 .show-dropdown-menu {
@@ -48,6 +49,7 @@
 }
 .dropdown-menu-fixed-buttons{
   position:absolute;
+  top:  -70px;
 }
 .created-categories{
   position:absolute;
