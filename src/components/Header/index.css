@@ -38,14 +38,14 @@
 
 .dropdown-menu {
   display: none;
+  position:relative;
+  z-index: 3;
 }
 
 .show-dropdown-menu {
   display: flex;
 }
-.dropdown-menu{
-  background:green;
-}
+
 
 .new-category-modal {
   padding: 30px;
