@@ -18,6 +18,7 @@ const Login = ({ history }) => {
     // response será o user encontrado no banco de dados
     const { token, user } = response.data;
     localStorage.setItem("Authorization", token);
+    localStorage.setItem("userId", user._id);
 
     history.push(`/user/${user._id}`);
   }

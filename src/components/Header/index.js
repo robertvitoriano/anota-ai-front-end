@@ -95,15 +95,15 @@ function Header ({match}){
         </div>
         {showNewCategoryModal?(
         <div className="new-category-modal">
-            <form>
-                <div className="new-category-close-button">X</div>
+                    <form onSubmit={handleCategoryCreation}>
+                <div className="new-category-close-button" onClick={e=>setShowNewCategoryModal(false)}>X</div>
                 <span className="new-category-call">Crie uma Categoria</span>
             <input type="text"
              className="new-category-input"
              value={newCategory}
              onChange={e=>setNewCategory(e.target.value)}
              />
-                    <button className={`new-category-button `} onCLick={handleCategoryCreation}>Criar Categoria</button>
+                    <button className={`new-category-button `}>Criar Categoria</button>
             </form>
         </div>
             ):''}

@@ -13,7 +13,8 @@ const NewNote=({match,history})=>{
      async function handleSubmit(event){
          event.preventDefault();
          await api.post('/notes', { title, body }, {headers: { userauth: localStorage.getItem("Authorization")}})
-         history.push(`/user/${match.params.userId}`)
+         const userId =   localStorage.getItem('userId');
+         history.push(`/user/${userId}`)
      }
     return(<div className="new-note-container">
         <Header match={match}></Header>
