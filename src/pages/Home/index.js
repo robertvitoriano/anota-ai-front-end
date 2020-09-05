@@ -114,7 +114,7 @@ const Home = ({ match }) => {
                 ))}
               </ul>
             ) : (
-              <h1>Nenhuma anotação ainda</h1>
+              <h1 className="no-note-message">Nenhuma anotação ainda</h1>
             )}
           </div>
           

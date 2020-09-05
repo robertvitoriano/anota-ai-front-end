@@ -188,4 +188,12 @@ body{
 
 
 
+
+}
+
+.no-note-message{
+    position: absolute;
+    top:460px;
+    left: 530px;
+    font-size:40px;
 }

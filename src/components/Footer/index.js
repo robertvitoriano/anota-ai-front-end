@@ -6,11 +6,11 @@ function Footer (){
 
     return(
         <div className="footer-container">
-            <h5>
+            <h3>
                Feito por Robert da Silva Vitoriano
-            </h5>
+            </h3>
         </div>
-    )
+   )
 }
 
 export default Footer;

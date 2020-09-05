@@ -8,6 +8,8 @@ function Header ({match}){
     const history = useHistory();
     const[showDropdownMenu,setShowDropDownMenu] = useState(false);
     const[createdCategories,setCreatedCategories] = useState([]);
+    const[newCategory,setNewCategory] = useState('');
+    const[showNewCategoryModal,setShowNewCategoryModal] = useState(false);
 
 
     useEffect(()=>{
@@ -31,8 +33,9 @@ function Header ({match}){
     async function handleHome(){
         history.push(`/user/${match.params.userId}`)
     }
-    async function handleCategories(){
+    async function handleDropDown(){
         setShowDropDownMenu(!showDropdownMenu);
+        console.log(showDropdownMenu);
     }
 
     async function showCategory(){
@@ -53,6 +56,18 @@ function Header ({match}){
         localStorage.removeItem("Authorization")
         history.push(`/`);
     }
+    async function handleCategoryCreation(e){
+        e.preventDefault();
+         await api('/'+match.params.userId+'/categories',{
+             name: newCategory, 
+             authorId:match.params.userId
+         },{
+            headers:{
+                userauth: localStorage.getItem("Authorization")
+            }
+        })
+
+    }
     
     return(
         <>
@@ -61,31 +76,37 @@ function Header ({match}){
             <div className="header-content">
                 <a onClick={handleHome} className=" header-button" >Home</a>
                 <div className="categories-dropdown-menu">
-                    <a onClick={handleCategories} className=" header-button categories-button" >Categorias</a>
-                    {showDropdownMenu?(
-                    <div className='dropdown-menu'>
-                                <a onClick={handleCategories} className=" header-button" >Nova Categoria</a>
-                        {createdCategories.length> 0 ?(
+                    <a onClick={handleDropDown} className=" header-button categories-button" >Categorias</a>
+           
+                        <div className={`dropdown-menu  ${showDropdownMenu ? 'show-dropdown-menu':''}`}>
+
+                            <a className=" header-button dropdown-menu-item" onClick={e=>setShowNewCategoryModal(true)} >Nova Categoria</a>
                       <div className="created-categories">
                 {createdCategories.map((createdCategory, index) => (
            <a onClick={showCategory} className=" header-button dropdown-menu-item" >{createdCategory.name}</a>))}
                      </div>
-                        ):''}
+             
                     </div>
-                    ):''}
+            
                 </div>
             <a onClick={handleCreation} className="header-button">Criar Anotação</a>
                 <a onClick={handleLogout} className=" header-button">LOGOUT</a>
             </div>
         </div>
+        {showNewCategoryModal?(
         <div className="new-category-modal">
             <form>
                 <div className="new-category-close-button">X</div>
                 <span className="new-category-call">Crie uma Categoria</span>
-            <input type="text" className="new-category-input"/>
-            <button className="new-category-button">Criar Categoria</button>
+            <input type="text"
+             className="new-category-input"
+             value={newCategory}
+             onChange={e=>setNewCategory(e.target.value)}
+             />
+                    <button className={`new-category-button `} onCLick={handleCategoryCreation}>Criar Categoria</button>
             </form>
         </div>
+            ):''}
         </>
     )
 
