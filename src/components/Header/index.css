@@ -45,6 +45,10 @@
 .show-dropdown-menu {
   display: flex;
 }
+.created-categories{
+  position:absolute;
+  top:80px;
+}
 
 
 .new-category-modal {
