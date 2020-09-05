@@ -4,13 +4,11 @@ import './index.css'
 
 function Footer (){
 
-
-
     return(
         <div className="footer-container">
-            <h2 >
-                <strong>Feito por Robert da Silva Vitoriano</strong>
-            </h2>
+            <h5>
+               Feito por Robert da Silva Vitoriano
+            </h5>
         </div>
     )
 }

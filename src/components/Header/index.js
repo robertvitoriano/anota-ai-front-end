@@ -55,6 +55,7 @@ function Header ({match}){
     }
     
     return(
+        <>
         <div className="header-container">
             
             <div className="header-content">
@@ -67,7 +68,7 @@ function Header ({match}){
                         {createdCategories.length> 0 ?(
                       <div className="created-categories">
                 {createdCategories.map((createdCategory, index) => (
-       <a onClick={showCategory} className=" header-button dropdown-menu-item" >{createdCategory.name}</a>))}
+           <a onClick={showCategory} className=" header-button dropdown-menu-item" >{createdCategory.name}</a>))}
                      </div>
                         ):''}
                     </div>
@@ -77,6 +78,14 @@ function Header ({match}){
                 <a onClick={handleLogout} className=" header-button">LOGOUT</a>
             </div>
         </div>
+        <div className="new-category-modal">
+            <form>
+                <div className="new-category-close-button">X</div>
+            <input type="text" className="new-category-input"/>
+            <button className="new-category-button">Criar Categoria</button>
+            </form>
+        </div>
+        </>
     )
 
 }

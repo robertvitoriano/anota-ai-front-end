@@ -58,8 +58,33 @@
   width:20vw;
   display: flex;
   justify-content: center;
+}
 
-    
-  
+.new-category-modal{
+  padding:30px;
+  background-color:#787E73;
+  position:absolute;
+  border-radius: 30px;
+}
+
+.new-category-modal button{
+   padding:10px;
+}
+
+.new-category-close-button{
+  color:black;
+  font-weight: bold;
+  font-size: 25px;
+  position:relative;
+  left:290px;
+  bottom:20px;
+  border:black 1px solid;
+  padding:4px 7px;
+  border-radius: 50%;
+}
+
+.new-category-close-button:hover{
+cursor: pointer;
+  color:red;
 
 }

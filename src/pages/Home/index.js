@@ -87,7 +87,6 @@ const Home = ({ match }) => {
          <div className="hamburguer-menu"><img className="hamburguer-menu-icon"src={hamburguerMenu}/></div>
         <div className="home-content">
           {notes.length>5?
-
           (<div className="next-button" onClick={e=>handleNextNotesButton(e)}>
             <img className="arrow-icon" src={arrow} />
           </div>):''}
