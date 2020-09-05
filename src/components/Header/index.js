@@ -9,7 +9,7 @@ function Header({ match }) {
   const [createdCategories, setCreatedCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [showNewCategoryModal, setShowNewCategoryModal] = useState(false);
-    const [showTranslucent,setShowTranslucent] = useState(false);
+  const [showTranslucent, setShowTranslucent] = useState(false);
 
   useEffect(() => {
     async function loadCategories() {
@@ -35,10 +35,7 @@ function Header({ match }) {
   }
 
   async function showCategory(e) {
-      e.preventDefault();
-      
-
-
+    e.preventDefault();
   }
   async function handleLogout() {
     try {
@@ -55,35 +52,30 @@ function Header({ match }) {
   }
   async function handleCategoryCreation(e) {
     e.preventDefault();
-      if (createdCategories.length < 8) {
-          try {
-              await api.post(
-                  "/" + match.params.userId + "/categories",
-                  {
-                      name: newCategory,
-                      authorId: match.params.userId,
-                  },
-                  {
-                      headers: {
-                          userauth: localStorage.getItem("Authorization"),
-                      },
-                  }
-              );
-
-          } catch (error) {
-              alert(error);
-
+    if (createdCategories.length < 8) {
+      try {
+        await api.post(
+          "/" + match.params.userId + "/categories",
+          {
+            name: newCategory,
+            authorId: match.params.userId,
+          },
+          {
+            headers: {
+              userauth: localStorage.getItem("Authorization"),
+            },
           }
-
-      }else{
-          alert("Limite de categorias atingido");
+        );
+      } catch (error) {
+        alert(error);
       }
+    } else {
+      alert("Limite de categorias atingido");
+    }
 
-
-
-      setShowNewCategoryModal(false);
-      setShowTranslucent(false);
-      setNewCategory('');
+    setShowNewCategoryModal(false);
+    setShowTranslucent(false);
+    setNewCategory("");
   }
 
   return (
@@ -106,15 +98,20 @@ function Header({ match }) {
                 showDropdownMenu ? "show-dropdown-menu" : ""
               }`}
             >
-              <a
-                className=" header-button dropdown-menu-item"
-                onClick={(e) => {
+              <div className="dropdown-menu-fixed-buttons">
+                <a
+                  className=" header-button dropdown-menu-item"
+                  onClick={(e) => {
                     setShowNewCategoryModal(true);
                     setShowTranslucent(true);
-                }}
-              >
-                Nova Categoria
-              </a>
+                  }}
+                >
+                  Nova Categoria
+                </a>
+                <a className=" header-button dropdown-menu-item">
+                  Gerenciar Categorias
+                </a>
+              </div>
               <div className="created-categories">
                 {createdCategories.map((createdCategory, index) => (
                   <a
@@ -142,9 +139,9 @@ function Header({ match }) {
             <div
               className="new-category-close-button"
               onClick={(e) => {
-                  setShowNewCategoryModal(false);
-                  setShowTranslucent(false);
-                }}
+                setShowNewCategoryModal(false);
+                setShowTranslucent(false);
+              }}
             >
               X
             </div>
@@ -161,9 +158,7 @@ function Header({ match }) {
       ) : (
         ""
       )}
-      {showTranslucent?(
-      <div className="translucent"></div>
-          ):''}
+      {showTranslucent ? <div className="translucent"></div> : ""}
     </>
   );
 }

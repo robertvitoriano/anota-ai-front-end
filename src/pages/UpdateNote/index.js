@@ -69,11 +69,16 @@ const UpdateNote = ({ history, match }) => {
                     <textarea className="note-body-creation" value={noteBody} onChange={(event) => { setNoteBody(event.target.value)
                   }}>
                     </textarea>
-                    <button>Alterar</button>
+                    <button
+                    className="note-button"
+                    >Alterar</button>
                 </form>
                 <button onClick={(e)=>{
                          handleDelete(e)
-                }}>Deletar</button>
+                }} 
+                className="note-button"
+                
+                >Deletar</button>
 
             </div>
             <Footer></Footer>

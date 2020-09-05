@@ -13,3 +13,17 @@ button{
 body{
     margin:0;
 }
+
+.note-button{
+  background-color: #c9b18f;
+  width: 200px;
+  height:60px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border: 3px solid #9c8a71;
+  box-shadow: black 1px 1px 1px 1px;
+  border-radius: 3px;
+  justify-content: center;
+  margin-top:5px;
+}

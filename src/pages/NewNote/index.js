@@ -34,7 +34,9 @@ const NewNote=({match,history})=>{
             value={body}
             onChange={e=>setBody(e.target.value)}
             ></textarea>
-            <button type="submit">Salvar Anotação</button>
+            <button type="submit"
+             className="note-button"
+            >Salvar Anotação</button>
             </form>
         </div>
         <Footer></Footer>

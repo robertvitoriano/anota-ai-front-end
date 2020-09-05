@@ -21,8 +21,8 @@
 
 .header-button {
   background-color: #c9b18f;
-  width: 100px;
-  height:80px;
+  width: 200px;
+  height:60px;
   display: flex;
   text-align: center;
   align-items: center;
@@ -30,6 +30,7 @@
   box-shadow: black 1px 1px 1px 1px;
   border-radius: 3px;
   justify-content: center;
+  
 }
 
 .logout-button:hover {
@@ -45,9 +46,12 @@
 .show-dropdown-menu {
   display: flex;
 }
+.dropdown-menu-fixed-buttons{
+  position:absolute;
+}
 .created-categories{
   position:absolute;
-  top:80px;
+  top:60px;
 }
 
 
