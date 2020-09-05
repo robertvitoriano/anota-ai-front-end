@@ -64,7 +64,7 @@ function Header ({match}){
                     <a onClick={handleCategories} className=" header-button categories-button" >Categorias</a>
                     {showDropdownMenu?(
                     <div className='dropdown-menu'>
-                        <a onClick={handleCategories} className=" header-button dropdown-menu-item" >Nova Categoria</a>
+                                <a onClick={handleCategories} className=" header-button" >Nova Categoria</a>
                         {createdCategories.length> 0 ?(
                       <div className="created-categories">
                 {createdCategories.map((createdCategory, index) => (
@@ -74,13 +74,14 @@ function Header ({match}){
                     </div>
                     ):''}
                 </div>
-            <button onClick={handleCreation} className="creation-button">Criar Anotação</button>
+            <a onClick={handleCreation} className="header-button">Criar Anotação</a>
                 <a onClick={handleLogout} className=" header-button">LOGOUT</a>
             </div>
         </div>
         <div className="new-category-modal">
             <form>
                 <div className="new-category-close-button">X</div>
+                <span className="new-category-call">Crie uma Categoria</span>
             <input type="text" className="new-category-input"/>
             <button className="new-category-button">Criar Categoria</button>
             </form>

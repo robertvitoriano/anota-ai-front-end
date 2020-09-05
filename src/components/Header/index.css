@@ -15,76 +15,97 @@
   top: 0;
   right: 0;
 }
-.creation-button{
-  padding:1rem 4rem 1rem 4rem;
+.creation-button {
+  padding: 1rem 4rem 1rem 4rem;
 }
 
 .header-button {
-  background-color: rgb(192, 192, 192);
+  background-color: #C9B18F;
   height: 100%;
   padding: 0 2rem 0 2rem;
   display: flex;
   text-align: center;
   align-items: center;
-
+  border: 3px solid #9c8a71;
   box-shadow: black 1px 1px 1px 1px;
+  border-radius: 3px;
 }
 
 .logout-button:hover {
   background-color: rgba(192, 192, 192, 0.589);
 }
 
-.categories-dropdown-menu{
-  height:30vh;
+.categories-dropdown-menu {
+  height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position:relative;
-  z-index: 6;;
-  
+  position: relative;
+  z-index: 6;
 }
 
-.categories-button{
-  height:8vh;
+.categories-button {
+  height: 8vh;
   display: flex;
   justify-content: center;
   padding: 0 2rem 0 2rem;
-  margin-bottom:1px;
-
+  margin-bottom: 1px;
 }
-.dropdown-menu-item{
+.dropdown-menu-item {
   background-color: rgb(192, 192, 192);
-  height:8vh;
-  width:20vw;
+  height: 8vh;
+  width: 20vw;
   display: flex;
   justify-content: center;
 }
 
-.new-category-modal{
-  padding:30px;
-  background-color:#787E73;
-  position:absolute;
+.new-category-modal {
+  padding: 30px;
+  background-color: #ac977b;
+  position: absolute;
   border-radius: 30px;
 }
 
-.new-category-modal button{
-   padding:10px;
+.new-category-modal button {
+  padding: 10px;
 }
 
-.new-category-close-button{
-  color:black;
+.new-category-close-button {
+  color: black;
   font-weight: bold;
   font-size: 25px;
-  position:relative;
-  left:290px;
-  bottom:20px;
-  border:black 1px solid;
-  padding:4px 7px;
+  position: relative;
+  left: 290px;
+  bottom: 20px;
+  border: black 1px solid;
+  padding: 4px 7px;
   border-radius: 50%;
 }
+.new-category-input {
+  width:360px;
+  text-align: center;
+  font-size: 20px;
+  }
+.new-category-input[type="text"] {
+  text-align: center;
+  font-size: 20px;
+}
+.new-category-close-button:hover {
+  cursor: pointer;
+  color: red;
+}
 
-.new-category-close-button:hover{
-cursor: pointer;
-  color:red;
+.new-category-button{
+  background-color:#C9B78E;
+  width:150px;
+  height:50px;
+  border: 3px solid #867762;
+  border-radius: 3px;
+}
 
+.new-category-call{
+  font-size:25px;
+  position:absolute;
+text-shadow: 1px 1px 1px white; 
+font-weight: bold;
 }
