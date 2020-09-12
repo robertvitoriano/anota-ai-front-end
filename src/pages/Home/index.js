@@ -28,7 +28,7 @@ const Home = ({ match }) => {
                 },
             })
             
-      
+
             if (response.data[initialNote])
               shownNotesRef.current.push(response.data[initialNote]);
 
@@ -70,9 +70,6 @@ const Home = ({ match }) => {
     function handleNextNotesButton(e) {
         e.preventDefault()
              setInitialNote(initialNote + 5);
-
-        
-
     }
         function handlePreviousNotesButton() {
 
@@ -83,7 +80,7 @@ const Home = ({ match }) => {
 
     return (
       <div className="home-container">
-        <Header match={match}>{initialNote}</Header>
+        <Header match={match}></Header>
          <div className="hamburguer-menu"><img className="hamburguer-menu-icon"src={hamburguerMenu}/></div>
         <div className="home-content">
           {notes.length>5?

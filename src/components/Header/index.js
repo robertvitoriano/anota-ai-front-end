@@ -85,46 +85,13 @@ function Header({ match }) {
           <a onClick={handleHome} className=" header-button">
             Home
           </a>
-          <div className="categories-dropdown-menu">
-            <a
-              onClick={handleDropDown}
-              className=" header-button categories-button"
-            >
-              Categorias
-            </a>
+          <a
+            onClick={e=>history.push(`/${match.params.userId}/categories`)}
+            className=" header-button categories-button"
+          >
+            Categorias
+          </a>
 
-            <div
-              className={`dropdown-menu  ${
-                showDropdownMenu ? "show-dropdown-menu" : ""
-              }`}
-            >
-              <div className="dropdown-menu-fixed-buttons">
-                <a
-                  className=" header-button dropdown-menu-item"
-                  onClick={(e) => {
-                    setShowNewCategoryModal(true);
-                    setShowTranslucent(true);
-                  }}
-                >
-                  Nova Categoria
-                </a>
-                <a className=" header-button dropdown-menu-item">
-                  Gerenciar Categorias
-                </a>
-              </div>
-              <div className="created-categories">
-                {createdCategories.map((createdCategory, index) => (
-                  <a
-                    onClick={showCategory}
-                    key={createdCategory._id}
-                    className=" header-button dropdown-menu-item"
-                  >
-                    {createdCategory.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
           <a onClick={handleCreation} className="header-button">
             Criar Anotação
           </a>
@@ -133,32 +100,6 @@ function Header({ match }) {
           </a>
         </div>
       </div>
-      {showNewCategoryModal ? (
-        <div className="new-category-modal">
-          <form onSubmit={handleCategoryCreation}>
-            <div
-              className="new-category-close-button"
-              onClick={(e) => {
-                setShowNewCategoryModal(false);
-                setShowTranslucent(false);
-              }}
-            >
-              X
-            </div>
-            <span className="new-category-call">Crie uma Categoria</span>
-            <input
-              type="text"
-              className="new-category-input"
-              value={newCategory}
-              onChange={(e) => setNewCategory(e.target.value)}
-            />
-            <button className={`new-category-button `}>Criar Categoria</button>
-          </form>
-        </div>
-      ) : (
-        ""
-      )}
-      {showTranslucent ? <div className="translucent"></div> : ""}
     </>
   );
 }

@@ -1,0 +1,52 @@
+.categories-container {
+  height: 100vh;
+  background-image: url("./office.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.categories-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.categories-scroll-list ul{
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    width:400px;
+    position: relative;
+    height: 400px;
+    
+}
+
+
+
+.categories-scroll-list li{
+font-size: 40px;
+background-color: aliceblue;
+border: solid 1px black;
+width: 100%;
+text-align: center;
+margin-right:25px;
+
+
+
+}
+
+.categories-list{
+    width:100%;
+    position: absolute;
+    top:0;
+    background-color: blueviolet;
+}
