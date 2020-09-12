@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import api from './../../services/api'
 
-import Header from './../../components/Header';
-import Footer from './../../components/Footer';
-import './index.css'
-function Categories({match}) {
+import Header from "./../../components/Header";
+import Footer from "./../../components/Footer";
+import "./index.css";
+function Categories({ match }) {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(()=>{
+      async function loadCategories(){
+          const response = await api.get('/'+match.params.userId+'/categories',{
+              headers:{
+                  userauth:localStorage.getItem('AUTHORIZATION')
+              }
+          })
+          setCategories(response.data);
+      }
+      loadCategories()
+
+  },[match.params.userId])
 
   return (
     <div class="categories-container">
@@ -12,32 +27,9 @@ function Categories({match}) {
         <div className="categories-scroll-list">
           <ul>
             <div className="categories-list">
-              <li>Link 1</li>
-              <li>Link 2</li>
-              <li>Link 3</li>
-              <li>Link 4</li>
-              <li>Link 5</li>
-              <li>Link 6</li>
-              <li>Link 7</li>
-              <li>Link 8</li>
-              <li>Link 9</li>
-              <li>Link 10</li>
-              <li>Link 11</li>
-              <li>Link 13</li>
-              <li>Link 13</li>
-              <li>Link 1</li>
-              <li>Link 2</li>
-              <li>Link 3</li>
-              <li>Link 4</li>
-              <li>Link 5</li>
-              <li>Link 6</li>
-              <li>Link 7</li>
-              <li>Link 8</li>
-              <li>Link 9</li>
-              <li>Link 10</li>
-              <li>Link 11</li>
-              <li>Link 13</li>
-              <li>Link 13</li>
+              {categories.map(() => (
+                <li>Link 1</li>
+              ))}
             </div>
           </ul>
         </div>
