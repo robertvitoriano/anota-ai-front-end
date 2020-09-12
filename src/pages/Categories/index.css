@@ -40,15 +40,19 @@ width: 100%;
 text-align: center;
 margin-right:25px;
 
-
-
 }
-
 .categories-list{
     width:100%;
     position: absolute;
     top:0;
     background-color: blueviolet;
 
-    
+}
+
+.categories-buttons-right{
+    margin-left:20px;
+}
+
+.categories-button{
+    margin-bottom:20px;
 }
