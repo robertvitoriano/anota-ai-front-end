@@ -9,26 +9,30 @@ function Categories({ match }) {
 
   useEffect(()=>{
       async function loadCategories(){
-          const response = await api.get('/'+match.params.userId+'/categories',{
-              headers:{
-                  userauth:localStorage.getItem('AUTHORIZATION')
-              }
-          })
+          const response = await api.get("/" + match.params.userId + "/categories",
+            {
+              headers: {
+                userauth: localStorage.getItem("Authorization"),
+              },
+            }
+          );
           setCategories(response.data);
+          console.log(response);
       }
       loadCategories()
-
-  },[match.params.userId])
+ 
+  })
+  console.log(categories)
 
   return (
-    <div class="categories-container">
+    <div className="categories-container">
       <Header match={match}></Header>
-      <div class="categories-content">
+      <div className="categories-content">
         <div className="categories-scroll-list">
           <ul>
             <div className="categories-list">
-              {categories.map(() => (
-                <li>Link 1</li>
+              {categories.map((category) => (
+                <li>{category.name}</li>
               ))}
             </div>
           </ul>

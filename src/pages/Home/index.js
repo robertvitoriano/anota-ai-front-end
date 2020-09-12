@@ -55,7 +55,7 @@ const Home = ({ match }) => {
 
         }
         loadNotes();
-        console.log(initialNote);
+      
 
     },[initialNote])
 
