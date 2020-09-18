@@ -36,9 +36,9 @@ function Categories({ match }) {
         <div className="categories-scroll-list">
           <ul>
             <div className="categories-list">
-              {categories.map((category) => (
+               {categories.map((category) => (
                 <li>{category.name}</li>
-              ))}
+              ))} 
             </div>
           </ul>
         </div>
