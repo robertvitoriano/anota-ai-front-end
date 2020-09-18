@@ -16,6 +16,7 @@
     font-size: 2rem;
     border: #9b9686 solid 8px;
     border-radius: 6%;
+    background-color: #DAC598;
 
 
 }
@@ -26,7 +27,7 @@
     height: 46vh;
     width:40vw;
     overflow:hidden;
-    background-color: rgb(228, 208, 208);
+    background-color: #DAC598;
     border-radius: 4%;
 }
 
