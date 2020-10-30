@@ -15,7 +15,7 @@ const Login = ({ history }) => {
       password: password,
     });
     if (response.status === 400) {
-      alert("unable o login");
+      console.log(response.status);
     } else {
       // response será o user encontrado no banco de dados
       const { token, user } = response.data;
