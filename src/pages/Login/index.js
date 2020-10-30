@@ -14,15 +14,18 @@ const Login = ({ history }) => {
       email: email,
       password: password,
     });
+    if (response.status !== 201) {
+      alert("unable o login");
+    } else {
+      // response será o user encontrado no banco de dados
+      const { token, user } = response.data;
+      localStorage.setItem("Authorization", token);
+      localStorage.setItem("userId", user._id);
 
-    // response será o user encontrado no banco de dados
-    const { token, user } = response.data;
-    localStorage.setItem("Authorization", token);
-    localStorage.setItem("userId", user._id);
-
-    history.push(`/user/${user._id}`);
+      history.push(`/user/${user._id}`);
+    }
   }
-  function handleSignInButton(event) {
+  function handleSignUpButton(event) {
     event.preventDefault();
     history.push(`/user/signup`);
   }
@@ -58,12 +61,12 @@ const Login = ({ history }) => {
       </h2>
       <button
         type="button"
-        onClick={(e) => handleSignInButton(e)}
+        onClick={(e) =>handleSignUpButton(e)}
         className="signup-button button"
       >
         Sign Up
       </button>
- 
+
       <Footer></Footer>
     </div>
   );
