@@ -1,12 +1,15 @@
 import React from "react";
-import {Wrapper} from './styled';
-function Category() {
-
+import { Wrapper } from "./styled";
+import Footer from "./../../components/Footer";
+import Header from "./../../components/Header";
+function Category({match}) {
   return (
-  <Wrapper/>
-  )
+    <>
+      <Header match={match} />
+      <Wrapper imgUrl></Wrapper>
+      <Footer />
+    </>
+  );
 }
-
-
 
 export default Category;
