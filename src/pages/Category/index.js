@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper, NotesWrapper, ButtonsWrapper, Button } from "./styled";
+import { Wrapper, NotesWrapper, ButtonsWrapper, Button,Content } from "./styled";
 import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
@@ -8,6 +8,7 @@ function Category({ match }) {
     <>
       <Header match={match} />
       <Wrapper imgUrl>
+        <Content>
         <NotesWrapper>
           <NoteCard
             title="primeira anotação"
@@ -86,6 +87,7 @@ function Category({ match }) {
           <Button>Adicionar</Button>
           <Button>remover</Button>
         </ButtonsWrapper>
+        </Content>
       </Wrapper>
       <Footer />
     </>

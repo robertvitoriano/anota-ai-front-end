@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import image from "./typewriter.jpg";
 
-export const Wrapper = styled.div`
+
+export const Wrapper= styled.div`
   width: 100vw;
   height: 100vh;
   background-image: url(${image});
@@ -9,6 +10,21 @@ export const Wrapper = styled.div`
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
+  align-items:center;
+`;
+
+
+
+
+
+export const Content = styled.div`
+  width: fit-content;
+  height: 100%;
+  margin:0 auto;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction:column;
 
   div::-webkit-scrollbar {
     width: 1em;
@@ -21,6 +37,9 @@ export const Wrapper = styled.div`
     background-color: #817059;
     border-radius: 10px;
   }
+  position:relative;
+  bottom:60px;
+
 `;
 
 export const NotesWrapper = styled.div`
@@ -36,17 +55,6 @@ export const NotesWrapper = styled.div`
   height: 600px;
   width: 1400px;
   overflow-y: scroll;
-
-  -webkit-scrollbar {
-    width: 1em;
-  }
-  -webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-  -webkit-scrollbar-thumb {
-    background-color: #817059;
-    border-radius: 10px;
-  }
 `;
 
 export const Title = styled.div`
@@ -84,5 +92,5 @@ export const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 400px;
+  width: 600px;
 `;
