@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 import api from "./../../services/api";
 
 import Header from "./../../components/Header";
@@ -7,7 +8,6 @@ import CreateCategoryModal from "../../components/Modals/CreateCategoryModal";
 import "./index.css";
 
 function Categories({ match }) {
-
   const [categories, setCategories] = useState([]);
   const [showCreationModal, setShowCreationModal] = useState(false);
 
@@ -24,7 +24,27 @@ function Categories({ match }) {
       setCategories(response.data);
     }
     loadCategories();
-  },[]);
+  }, []);
+
+  const handleCategoryCreation = async (name, id) => {
+    const response = await api.post(
+      "/" + match.params.userId + "/categories",
+      {
+        name: name,
+
+        id: id,
+      },
+      {
+        headers: {
+          userauth: localStorage.getItem("Authorization"),
+        },
+      }
+    );
+    setShowCreationModal(false);
+
+    const newCategory = response.data;
+    setCategories([...categories, newCategory]);
+  };
 
   return (
     <div className="categories-container">
@@ -44,7 +64,11 @@ function Categories({ match }) {
           <ul>
             <div className="categories-list">
               {categories.map((category) => (
-                <li>{category.name}</li>
+                <Link to={`${category._id}`}>
+                <li key={category._id}>
+                  {category.name}
+                </li>
+                </Link>
               ))}
             </div>
           </ul>
@@ -56,7 +80,11 @@ function Categories({ match }) {
         </div>
       </div>
       <Footer></Footer>
-      {showCreationModal ? <CreateCategoryModal /> : ""}
+      {showCreationModal ? (
+        <CreateCategoryModal onCreate={handleCategoryCreation} match={match} />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

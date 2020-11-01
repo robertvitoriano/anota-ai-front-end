@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp'
 import NewNote from './pages/NewNote';
 import UpdateNote from './pages/UpdateNote'
 import Categories from './pages/Categories'
+import Category from './pages/Category';
 
 
 export default function Routes() {
@@ -18,6 +19,8 @@ export default function Routes() {
           <Route path="/:userId/categories" component={Categories} />
           <Route path="/:userId/creation" component={NewNote} />
           <Route path="/:noteId/update" component={UpdateNote} />
+          <Route path="/:categoryId" component={Category} />
+
         </Switch>
       </Router>
     );
