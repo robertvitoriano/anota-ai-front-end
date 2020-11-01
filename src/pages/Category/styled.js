@@ -66,3 +66,23 @@ export const NoteBody = styled.div`
   background-color: rgb(228, 208, 208);
   border-radius: 4%;
 `;
+
+export const Button = styled.button`
+  background-color: #c9b18f;
+  width: 200px;
+  height: 60px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border: 3px solid #9c8a71;
+  box-shadow: black 1px 1px 1px 1px;
+  border-radius: 3px;
+  justify-content: center;
+  margin-top: 5px;
+`;
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 400px;
+`;

@@ -28,6 +28,7 @@ function Category({match}) {
        <NoteCard title="primeira anotação" body="Esse é o corpo da minha primeira anotação"/>
        <NoteCard title="primeira anotação" body="Esse é o corpo da minha primeira anotação"/>
        </NotesWrapper>
+       
       </Wrapper>
       <Footer />
     </>
