@@ -19,9 +19,11 @@ export const NotesWrapper = styled.div`
   grid-gap: 8%;
   position: absolute;
   position:relative;
-  right:60px;
-  bottom:50px;
-  
+  right:20px;
+  bottom:30px;
+  height:600px;
+  width:1400px;
+  overflow-y:scroll;
 `;
 
 export const Title = styled.div`
