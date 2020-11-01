@@ -5,9 +5,6 @@ import api from "./../../services/api";
 
 function Header({ match }) {
   const history = useHistory();
-  const [showDropdownMenu, setShowDropDownMenu] = useState(false);
-  const [createdCategories, setCreatedCategories] = useState([]);
-
 
   async function handleCreation() {
     history.push(`/${match.params.userId}/creation`);
