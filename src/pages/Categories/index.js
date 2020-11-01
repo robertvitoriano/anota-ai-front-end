@@ -3,9 +3,13 @@ import api from "./../../services/api";
 
 import Header from "./../../components/Header";
 import Footer from "./../../components/Footer";
+import CreateCategoryModal from "../../components/Modals/CreateCategoryModal";
 import "./index.css";
+
 function Categories({ match }) {
+
   const [categories, setCategories] = useState([]);
+  const [showCreationModal, setShowCreationModal] = useState(false);
 
   useEffect(() => {
     async function loadCategories() {
@@ -18,27 +22,30 @@ function Categories({ match }) {
         }
       );
       setCategories(response.data);
-      console.log(response);
     }
     loadCategories();
-  });
-  console.log(categories);
+  },[]);
 
   return (
     <div className="categories-container">
       <Header match={match}></Header>
       <div className="categories-content">
         <div className=" categories-buttons categories-buttons-left">
-          <a className="header-button categories-button">Criar Anotação</a>
+          <a
+            className="header-button categories-button"
+            onClick={() => setShowCreationModal(true)}
+          >
+            Criar
+          </a>
           <a className="header-button categories-button">Deletar</a>
           <a className="header-button categories-button"></a>
         </div>
         <div className="categories-scroll-list">
           <ul>
             <div className="categories-list">
-               {categories.map((category) => (
+              {categories.map((category) => (
                 <li>{category.name}</li>
-              ))} 
+              ))}
             </div>
           </ul>
         </div>
@@ -49,6 +56,7 @@ function Categories({ match }) {
         </div>
       </div>
       <Footer></Footer>
+      {showCreationModal ? <CreateCategoryModal /> : ""}
     </div>
   );
 }
