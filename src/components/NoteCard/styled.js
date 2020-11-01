@@ -27,5 +27,5 @@ export const NoteBody = styled.div`
 export const RadioButton = styled.input`
 position:relative;
 top:15px;
-right:180px;
+right:170px;
 `

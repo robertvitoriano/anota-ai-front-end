@@ -19,9 +19,6 @@ export const Wrapper= styled.div`
 `;
 
 
-
-
-
 export const Content = styled.div`
   width: fit-content;
   height: 100%;
