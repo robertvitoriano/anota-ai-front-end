@@ -12,6 +12,7 @@ import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
 function Category({ match }) {
   const [title, setTitle] = useState("");
+  const [notes, setNotes] = useState("");
 
   useEffect(() => {
     const loadCategoryInfo = async () => {
@@ -22,8 +23,9 @@ function Category({ match }) {
         },
       });
       console.log(response.data);
-      const title = response.data.name;
-      setTitle(title)
+      const { category, categoryNotes } = response.data;
+      setTitle(category.name);
+      setNotes(categoryNotes);
     };
     loadCategoryInfo();
   }, []);
@@ -38,74 +40,14 @@ function Category({ match }) {
               title="primeira anotação"
               body="Esse é o corpo da minha primeira anotação"
             />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
+            {notes
+              ? notes.map((note) => (
+                  <NoteCard
+                    title={note.title}
+                    body={note.body}
+                  />
+                ))
+              : "Não há anotação nessa categoria"}
           </NotesWrapper>
           <ButtonsWrapper>
             <Button>Adicionar</Button>
