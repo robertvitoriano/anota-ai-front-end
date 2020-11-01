@@ -1,10 +1,12 @@
 import React from "react";
-import { Translucent, Modal, Wrapper } from "./styled";
+import { Translucent, Modal, Wrapper,Input,Button } from "./styled";
 const CreateCategoryModal = () => {
   return (
     <Wrapper>
       <Modal>
-        <h1>Hello world</h1>
+        <h1>Nova Categoria</h1>
+        <Input/>
+        <Button><h1>Criar Categoria</h1></Button>
       </Modal>
       <Translucent />
     </Wrapper>
