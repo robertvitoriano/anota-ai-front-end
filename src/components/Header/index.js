@@ -16,14 +16,7 @@ function Header({ match }) {
   async function handleHome() {
     history.push(`/user/${match.params.userId}`);
   }
-  async function handleDropDown() {
-    setShowDropDownMenu(!showDropdownMenu);
-    console.log(showDropdownMenu);
-  }
 
-  async function showCategory(e) {
-    e.preventDefault();
-  }
   async function handleLogout() {
     try {
       await api.post("/users/logout", {
