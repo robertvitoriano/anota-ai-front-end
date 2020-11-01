@@ -7,21 +7,8 @@ function Header({ match }) {
   const history = useHistory();
   const [showDropdownMenu, setShowDropDownMenu] = useState(false);
   const [createdCategories, setCreatedCategories] = useState([]);
-  const [newCategory, setNewCategory] = useState("");
-  const [showNewCategoryModal, setShowNewCategoryModal] = useState(false);
-  const [showTranslucent, setShowTranslucent] = useState(false);
 
-  useEffect(() => {
-    async function loadCategories() {
-      const response = await api.get(`/${match.params.userId}/categories`, {
-        headers: {
-          userauth: localStorage.getItem("Authorization"),
-        },
-      });
-      setCreatedCategories(response.data);
-    }
-    loadCategories();
-  }, [showNewCategoryModal]);
+
   async function handleCreation() {
     history.push(`/${match.params.userId}/creation`);
   }
@@ -49,33 +36,6 @@ function Header({ match }) {
     }
     localStorage.removeItem("Authorization");
     history.push(`/`);
-  }
-  async function handleCategoryCreation(e) {
-    e.preventDefault();
-    if (createdCategories.length < 8) {
-      try {
-        await api.post(
-          "/" + match.params.userId + "/categories",
-          {
-            name: newCategory,
-            authorId: match.params.userId,
-          },
-          {
-            headers: {
-              userauth: localStorage.getItem("Authorization"),
-            },
-          }
-        );
-      } catch (error) {
-        alert(error);
-      }
-    } else {
-      alert("Limite de categorias atingido");
-    }
-
-    setShowNewCategoryModal(false);
-    setShowTranslucent(false);
-    setNewCategory("");
   }
 
   return (
