@@ -22,7 +22,6 @@ function Category({ match }) {
           userAuth: localStorage.getItem("Authorization"),
         },
       });
-      console.log(response.data);
       const { category, categoryNotes } = response.data;
       setTitle(category.name);
       setNotes(categoryNotes);

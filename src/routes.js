@@ -7,6 +7,7 @@ import NewNote from './pages/NewNote';
 import UpdateNote from './pages/UpdateNote'
 import Categories from './pages/Categories'
 import Category from './pages/Category';
+import GlobalStyles from './styles/global';
 
 
 export default function Routes() {
@@ -20,8 +21,8 @@ export default function Routes() {
           <Route path="/:userId/creation" component={NewNote} />
           <Route path="/:noteId/update" component={UpdateNote} />
           <Route path="/:userId/:categoryId" component={Category} />
-
         </Switch>
+        <GlobalStyles/>
       </Router>
     );
 
