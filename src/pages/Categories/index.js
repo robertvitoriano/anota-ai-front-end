@@ -27,6 +27,9 @@ function Categories({ match }) {
   }, []);
 
   const handleCategoryCreation = async (name, id) => {
+
+    if(!name) return alert(" Insira o nome da nova categoria.");
+    
     const response = await api.post(
       "/" + match.params.userId + "/categories",
       {
@@ -44,6 +47,8 @@ function Categories({ match }) {
 
     const newCategory = response.data;
     setCategories([...categories, newCategory]);
+
+    
   };
 
   return (
@@ -81,7 +86,7 @@ function Categories({ match }) {
       </div>
       <Footer></Footer>
       {showCreationModal ? (
-        <CreateCategoryModal onCreate={handleCategoryCreation} match={match} />
+        <CreateCategoryModal onCreate={handleCategoryCreation} match={match} onCancel={setShowCreationModal} />
       ) : (
         ""
       )}

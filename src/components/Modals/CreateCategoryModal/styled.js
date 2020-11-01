@@ -58,3 +58,11 @@ export const Button = styled.button`
 
 
 `
+export const ButtonsWrapper = styled.div`
+
+display:flex;
+flex-direction:row;
+justify-content:space-around;
+width:300px;
+
+`
