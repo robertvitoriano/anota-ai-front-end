@@ -1,92 +1,116 @@
-import React,{useEffect} from "react";
-import { Wrapper, NotesWrapper, ButtonsWrapper, Button,Content } from "./styled";
+import React, { useEffect, useState } from "react";
+import api from "./../../services/api";
+import {
+  Wrapper,
+  NotesWrapper,
+  ButtonsWrapper,
+  Button,
+  Content,
+} from "./styled";
 import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
 function Category({ match }) {
+  const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    const loadCategoryInfo = async () => {
+      const { userId, categoryId } = match.params;
+      const response = await api.get(`/${userId}/categories/${categoryId}`, {
+        headers: {
+          userAuth: localStorage.getItem("Authorization"),
+        },
+      });
+      console.log(response.data);
+      const title = response.data.name;
+      setTitle(title)
+    };
+    loadCategoryInfo();
+  }, []);
   return (
     <>
       <Header match={match} />
-      <Wrapper imgUrl>
+      <Wrapper>
+        <h1>{title}</h1>
         <Content>
-        <NotesWrapper>
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-          <NoteCard
-            title="primeira anotação"
-            body="Esse é o corpo da minha primeira anotação"
-          />
-        </NotesWrapper>
-        <ButtonsWrapper>
-          <Button>Adicionar</Button>
-          <Button>remover</Button>
-        </ButtonsWrapper>
+          <NotesWrapper>
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+            <NoteCard
+              title="primeira anotação"
+              body="Esse é o corpo da minha primeira anotação"
+            />
+          </NotesWrapper>
+          <ButtonsWrapper>
+            <Button>Adicionar</Button>
+            <Button>remover</Button>
+          </ButtonsWrapper>
         </Content>
       </Wrapper>
       <Footer />

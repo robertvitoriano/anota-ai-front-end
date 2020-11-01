@@ -11,6 +11,11 @@ export const Wrapper= styled.div`
   display: flex;
   justify-content: center;
   align-items:center;
+  flex-direction:column;
+  h1{
+    position:absolute;
+    top:60px;
+  }
 `;
 
 
