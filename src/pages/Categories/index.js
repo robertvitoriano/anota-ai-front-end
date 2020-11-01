@@ -69,7 +69,7 @@ function Categories({ match }) {
           <ul>
             <div className="categories-list">
               {categories.map((category) => (
-                <Link to={`${category._id}`}>
+                <Link to={`/${match.params.userId}/${category._id}`}>
                 <li key={category._id}>
                   {category.name}
                 </li>
