@@ -10,23 +10,22 @@ import {
 import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
-function Category({ match }) {
+function AddCategory({ match }) {
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
 
   useEffect(() => {
-    const loadCategoryInfo = async () => {
+    const loadNotes= async () => {
       const { userId, categoryId } = match.params;
-      const response = await api.get(`/${userId}/categories/${categoryId}`, {
+      const response = await api.get(`/notes'`, {
         headers: {
           userAuth: localStorage.getItem("Authorization"),
         },
       });
-      const { category, categoryNotes } = response.data;
-      setTitle(category.name);
-      setNotes(categoryNotes);
+      console.log(response.data);
+
     };
-    loadCategoryInfo();
+    loadNotes();
   }, []);
   return (
     <>
@@ -46,7 +45,7 @@ function Category({ match }) {
                     body={note.body}
                   />
                 ))
-              : "Não há anotação nessa categoria"}
+              : "Não há anotações"}
           </NotesWrapper>
           <ButtonsWrapper>
             <Button>Adicionar</Button>
@@ -59,4 +58,4 @@ function Category({ match }) {
   );
 }
 
-export default Category;
+export default AddCategory;
