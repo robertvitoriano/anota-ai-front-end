@@ -35,9 +35,8 @@ function AddToCategory({ match }) {
 
   const handleAddToCategory = (selectedNotes,categoryId) =>{
     
-    const response = api.post(`/categories/${match.params.ca}/associate`,{
+    const response = api.post(`/categories/${categoryId}/associate`,{
       notesId:selectedNotes,
-      categoryId:categoryId
     })
     console.log(response.data);
     console.log(selectedNotes)
