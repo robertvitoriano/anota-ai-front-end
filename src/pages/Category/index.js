@@ -10,7 +10,7 @@ import {
 import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
-function Category({ match }) {
+function Category({ match,history }) {
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
 
@@ -49,8 +49,8 @@ function Category({ match }) {
               : "Não há anotação nessa categoria"}
           </NotesWrapper>
           <ButtonsWrapper>
-            <Button>Adicionar</Button>
-            <Button>remover</Button>
+            <Button onClick={()=>history.push(`/${match.params.userId}/${match.params.categoryId}/add`)}>Modificar</Button>
+            
           </ButtonsWrapper>
         </Content>
       </Wrapper>

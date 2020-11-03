@@ -10,45 +10,63 @@ import {
 import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
-function AddCategory({ match }) {
+function AddToCategory({ match }) {
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
+  const [selectedNotes,setSelectedNote] = useState([]);
 
   useEffect(() => {
     const loadNotes= async () => {
       const { userId, categoryId } = match.params;
-      const response = await api.get(`/notes'`, {
+      
+      const response = await api.get(`/notes`, {
         headers: {
           userAuth: localStorage.getItem("Authorization"),
         },
       });
-      console.log(response.data);
+      const allNotes = response.data;
+      const filteredNotes = allNotes.filter(note=>note.categoryId !==categoryId)
+      setNotes(filteredNotes);
+
 
     };
     loadNotes();
   }, []);
+
+  const handleAddToCategory = (selectedNotes,categoryId) =>{
+    
+    const response = api.post(`/categories/${match.params.ca}/associate`,{
+      notesId:selectedNotes,
+      categoryId:categoryId
+    })
+    console.log(response.data);
+    console.log(selectedNotes)
+
+  }
+
+
   return (
     <>
       <Header match={match} />
       <Wrapper>
-        <h1>{title}</h1>
+        <h1>Adicione ou remova uma anotação à {title}</h1>
         <Content>
           <NotesWrapper>
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
             {notes
               ? notes.map((note) => (
                   <NoteCard
                     title={note.title}
                     body={note.body}
+                    onSelect={setSelectedNote}
+                    id={note._id}
+                    categoryId={match.params.categoryId}
+                    selectedNotes={selectedNotes}
                   />
                 ))
               : "Não há anotações"}
           </NotesWrapper>
           <ButtonsWrapper>
-            <Button>Adicionar</Button>
+            <Button onClick={()=>handleAddToCategory(selectedNotes,match.params.categoryId)}>Adicionar</Button>
             <Button>remover</Button>
           </ButtonsWrapper>
         </Content>
@@ -58,4 +76,4 @@ function AddCategory({ match }) {
   );
 }
 
-export default AddCategory;
+export default AddToCategory;

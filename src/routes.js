@@ -21,7 +21,7 @@ export default function Routes() {
           <Route path="/:userId/categories" component={Categories} />
           <Route path="/:userId/creation" component={NewNote} />
           <Route path="/:noteId/update" component={UpdateNote} />
-          <Route path="/:userId/:categoryId" component={Category} />
+          <Route path="/:userId/:categoryId" exact component={Category} />
           <Route path="/:userId/:categoryId/add" component={AddToCategory} />
 
         </Switch>
