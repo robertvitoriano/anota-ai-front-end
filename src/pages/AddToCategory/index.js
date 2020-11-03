@@ -37,6 +37,10 @@ function AddToCategory({ match }) {
     
     const response = api.post(`/categories/${categoryId}/associate`,{
       notesId:selectedNotes,
+    },{
+      headers: {
+        userAuth: localStorage.getItem("Authorization"),
+      }
     })
     console.log(response.data);
     console.log(selectedNotes)
