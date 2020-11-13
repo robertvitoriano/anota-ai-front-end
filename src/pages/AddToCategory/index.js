@@ -10,7 +10,7 @@ import {
 import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
-function AddToCategory({ match }) {
+function AddToCategory({ match,history }) {
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
   const [selectedNotes,setSelectedNote] = useState([]);
@@ -43,8 +43,14 @@ function AddToCategory({ match }) {
         userAuth: localStorage.getItem("Authorization"),
       }
     })
+
     console.log("Essa é minha response",response.data);
-    console.log("Esses são os ID's",selectedNotes)
+    console.log("Esses são os ID's",selectedNotes);
+     const{userId} = localStorage.getItem('userId')
+     console.log("meus params",match.params);
+     console.log("Id no localStorage",userId);
+     history.push(`/${userId}/${categoryId}`)
+
 
   }
 

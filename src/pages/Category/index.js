@@ -37,10 +37,6 @@ function Category({ match,history }) {
         <h1>{title}</h1>
         <Content>
           <NotesWrapper>
-            <NoteCard
-              title="primeira anotação"
-              body="Esse é o corpo da minha primeira anotação"
-            />
             {notes
               ? notes.map((note) => (
                   <NoteCard
