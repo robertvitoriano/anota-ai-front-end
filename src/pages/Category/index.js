@@ -22,7 +22,8 @@ function Category({ match,history }) {
           userAuth: localStorage.getItem("Authorization"),
         },
       });
-      const { category, categoryNotes } = response.data;
+      const { category} = response.data;
+      const categoryNotes = response.data.notes;
       setTitle(category.name);
       setNotes(categoryNotes);
       console.log("Essas são as anotações",response.data);

@@ -27,6 +27,7 @@ function AddToCategory({ match }) {
       const allNotes = response.data;
       const filteredNotes = allNotes.filter(note=>note.categoryId !==categoryId)
       setNotes(filteredNotes);
+      console.log("Essas são as anotações pertecentes À minha categoria",filteredNotes)
 
 
     };
