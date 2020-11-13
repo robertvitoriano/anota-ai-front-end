@@ -42,7 +42,7 @@ function AddToCategory({ match }) {
         userAuth: localStorage.getItem("Authorization"),
       }
     })
-    console.log("Essa é minha response"response.data);
+    console.log("Essa é minha response",response.data);
     console.log("Esses são os ID's",selectedNotes)
 
   }
