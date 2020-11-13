@@ -25,6 +25,7 @@ function Category({ match,history }) {
       const { category, categoryNotes } = response.data;
       setTitle(category.name);
       setNotes(categoryNotes);
+      console.log("Essas são as anotações",response.data);
     };
     loadCategoryInfo();
   }, []);
