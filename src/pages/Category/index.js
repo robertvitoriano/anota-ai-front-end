@@ -11,8 +11,11 @@ import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
 function Category({ match,history }) {
+
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
+  const[selectedNotes,setSelectedNotes] = useState([]);
+  const[isLoading,setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadCategoryInfo = async () => {
@@ -22,6 +25,7 @@ function Category({ match,history }) {
           userAuth: localStorage.getItem("Authorization"),
         },
       });
+      setIsLoading(false)
       const { category} = response.data;
       const categoryNotes = response.data.notes;
       setTitle(category.name);
@@ -30,6 +34,20 @@ function Category({ match,history }) {
     };
     loadCategoryInfo();
   }, []);
+
+  const handleDelete = async(selectedNotes) =>{
+    const {categoryId } = match.params;
+
+    const response = await api.patch(`/categories/${categoryId}/remove`,{
+      notesId:selectedNotes,
+    },{
+      headers: {
+        userAuth: localStorage.getItem("Authorization"),
+      }
+    });
+    const remainingNotes = notes.filter((note)=>!selectedNotes.includes(note._id))
+    setNotes(remainingNotes);
+  }
   return (
     <>
       <Header match={match} />
@@ -42,12 +60,18 @@ function Category({ match,history }) {
                   <NoteCard
                     title={note.title}
                     body={note.body}
+                    id={note._id}
+                    onSelect={setSelectedNotes}
+                    selectedNotes={selectedNotes}
                   />
                 ))
               : "Não há anotação nessa categoria"}
           </NotesWrapper>
           <ButtonsWrapper>
-            <Button onClick={()=>history.push(`/${match.params.userId}/${match.params.categoryId}/add`)}>Modificar</Button>
+            
+            <Button onClick={()=>history.push(`/${match.params.userId}/${match.params.categoryId}/add`)}>Adicionar</Button>
+            <Button onClick={()=>handleDelete(selectedNotes)}>Deletar</Button>
+
             
           </ButtonsWrapper>
         </Content>

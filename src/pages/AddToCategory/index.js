@@ -35,7 +35,7 @@ function AddToCategory({ match,history }) {
   }, []);
 
   const handleAddToCategory = async (selectedNotes,categoryId) =>{
-    
+    console.log(selectedNotes)
     const response = await api.post(`/categories/${categoryId}/associate`,{
       notesId:selectedNotes,
     },{

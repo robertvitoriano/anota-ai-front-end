@@ -1,7 +1,7 @@
 import React from "react";
 import { Wrapper, NoteBody, Title, RadioButton } from "./styled";
 
-const NoteCard = ({ title, body,id,categoryId,selectedNotes,onSelect }) => {
+const NoteCard = ({ title, body,id,selectedNotes,onSelect }) => {
   return (
     <Wrapper>
       <RadioButton
