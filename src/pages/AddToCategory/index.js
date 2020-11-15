@@ -76,7 +76,6 @@ function AddToCategory({ match,history }) {
           </NotesWrapper>
           <ButtonsWrapper>
             <Button onClick={()=>handleAddToCategory(selectedNotes,match.params.categoryId)}>Adicionar</Button>
-            <Button>remover</Button>
           </ButtonsWrapper>
         </Content>
       </Wrapper>
