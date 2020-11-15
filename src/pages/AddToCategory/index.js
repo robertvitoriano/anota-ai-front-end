@@ -68,6 +68,8 @@ function AddToCategory({ match,history }) {
                     id={note._id}
                     categoryId={match.params.categoryId}
                     selectedNotes={selectedNotes}
+                    hasRadio={true}
+
                   />
                 ))
               : "Não há anotações"}

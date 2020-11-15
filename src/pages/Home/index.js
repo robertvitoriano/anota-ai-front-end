@@ -3,7 +3,8 @@ import { useHistory } from 'react-router-dom'
 import './home.css'
 import api from '../../services/api';
 import Header from './../../components/Header';
-import Footer from './../../components/Footer'
+import Footer from './../../components/Footer';
+import NoteCard  from '../../components/NoteCard';
 import arrow from './arrow.png';
 import hamburguerMenu from './Component 1 – 1@2x.png';
 
@@ -27,7 +28,6 @@ const Home = ({ match }) => {
                     userauth: localStorage.getItem("Authorization"),notes
                 },
             })
-            
 
             if (response.data[initialNote])
               shownNotesRef.current.push(response.data[initialNote]);
@@ -99,14 +99,12 @@ const Home = ({ match }) => {
                     }}
                     href="#"
                   >
-                    <li >
-                      <div className="note-title-home">
-                        <h2>{note.title}</h2>
-                      </div>
-                      <div className="note-body-home">
-                        <p>{note.body}</p>
-                      </div>
-                    </li>
+                   <NoteCard
+                    title={note.title}
+                    body={note.body}
+                    id={note._id}
+                    hasRadio={false}
+                  />
                   </a>
                 ))}
               </ul>

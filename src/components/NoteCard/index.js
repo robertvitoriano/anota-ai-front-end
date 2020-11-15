@@ -1,13 +1,37 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Wrapper, NoteBody, Title, RadioButton } from "./styled";
 
-const NoteCard = ({ title, body,id,categoryId,selectedNotes,onSelect }) => {
+const NoteCard = ({ title, body,id,selectedNotes,onSelect,hasRadio}) => {
+
+  const [wasChecked,setWasChecked] = useState(false)
+   useEffect(()=>{
+
+    const handleSelection = () =>{
+      console.log('has changed')
+      console.log(id)
+      if(selectedNotes){
+        switch(wasChecked){
+          case true:
+           onSelect([...selectedNotes,id])
+            break;
+          case false:
+            const remainingNotes = selectedNotes.filter((note)=>note!==id)
+           onSelect(remainingNotes);
+           break;
+        }
+        console.log("selected notes",selectedNotes);
+      }
+    }
+    handleSelection()
+
+   },[wasChecked])
   return (
     <Wrapper>
-      <RadioButton
+     {hasRadio&&( <RadioButton
         type="radio"
-        onClick={()=>onSelect([...selectedNotes,id])}
-      />
+        onClick={()=>setWasChecked(!wasChecked)}
+        checked={wasChecked}
+      />)}
       <Title>{title}</Title>
       <NoteBody>{body}</NoteBody>
     </Wrapper>

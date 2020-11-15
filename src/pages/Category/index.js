@@ -63,6 +63,8 @@ function Category({ match,history }) {
                     id={note._id}
                     onSelect={setSelectedNotes}
                     selectedNotes={selectedNotes}
+                    hasRadio={true}
+
                   />
                 ))
               : "Não há anotação nessa categoria"}
