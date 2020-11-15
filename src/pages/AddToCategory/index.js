@@ -44,11 +44,8 @@ function AddToCategory({ match,history }) {
       }
     })
 
-    console.log("Essa é minha response",response.data);
     console.log("Esses são os ID's",selectedNotes);
      const{userId} = localStorage.getItem('userId')
-     console.log("meus params",match.params);
-     console.log("Id no localStorage",userId);
      history.push(`/${userId}/${categoryId}`)
 
 
