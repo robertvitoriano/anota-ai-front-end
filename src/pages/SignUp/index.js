@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Loading from './../../components/Loading';
 
 import api from '../../services/api'
 import Footer from './../../components/Footer'
@@ -11,10 +12,12 @@ const Login = ({ history }) => {
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
     const [username, setUsername] = useState('')
+    const [isLoading, setIsLoading] =useState(false);
    
 
     async function handleSubmit(event) {
         event.preventDefault()
+        setIsLoading(true);
 
      const response =   await api.post('/users', {
             email: email,
@@ -24,15 +27,13 @@ const Login = ({ history }) => {
         })
         console.log(response.data);
 
-
-    
-
         history.push(`/`);
     }
 
 
     return (
       <div className="sign-up-container">
+        {isLoading?(<Loading/>):''}
         <h1>Faça seu cadastro e comece a criar</h1>
         <div className="form-container">
           <input
