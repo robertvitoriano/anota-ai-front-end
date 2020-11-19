@@ -23,6 +23,7 @@ const Login = ({ history }) => {
             email: email,
             password: password,
             name:name,
+            
             username:username
         })
         console.log(response.data);
