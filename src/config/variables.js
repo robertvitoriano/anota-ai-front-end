@@ -1,14 +1,8 @@
 import productionVariables from './production_variables'
 
-let  variables =  productionVariables 
-
-if(!productionVariables.REACT_APP_API_URL){
-
-    
-    variables  = require('./local_variables').default
+let  variables =  productionVariables.REACT_APP_API_URL ?productionVariables :require('./local_variables').default
 
 
-}
 
 
 export default variables
