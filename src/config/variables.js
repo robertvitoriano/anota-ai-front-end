@@ -1,7 +1,6 @@
 import productionVariables from './production_variables'
-import localVariables from './local_variables'
 
-const variables = productionVariables.PORT ? productionVariables : localVariables
+const variables = productionVariables.PORT ? productionVariables : import ('./local_variables')
 
 
 export default variables
