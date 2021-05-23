@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import api from './../../services/api'
 import Header from '../../components/Header'
 import Footer from './../../components/Footer'
+import Loading from './../../components/Loading'
+import Swal from 'sweetalert2'
 import './update-note.css'
+
 const UpdateNote = ({ history, match }) => {
 
     const [noteTitle, setNoteTitle] = useState('')
     const [noteBody, setNoteBody] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
  
 
     useEffect(() => {
@@ -23,12 +27,13 @@ const UpdateNote = ({ history, match }) => {
         }
         loadNote();
 
-    },[])
+    },[match.params.noteId])
 
     
 
     const handleUpdate = async (e) => {
         e.preventDefault();
+        setIsLoading(true)
         await api.post('/notes/'+match.params.noteId,{
             title:noteTitle,
             body:noteBody
@@ -37,26 +42,63 @@ const UpdateNote = ({ history, match }) => {
                 userauth: localStorage.getItem('Authorization')
             }
         })
-        const userId = localStorage.getItem('userId')
-        history.push(`/user/${userId}`)
+        setIsLoading(false)
+
+        Swal.fire(
+           'Você Alterou',
+           'Anotação alterada com sucesso',
+           'success'
+         )
     }
     const handleDelete = async (e) => {
         e.preventDefault();
-        await api.delete('/notes/' + match.params.noteId, {  
-            headers: {
-                userauth: localStorage.getItem('Authorization')
+
+        Swal.fire({
+            title: 'Você realmente deseja deletar',
+            text: "Não será possível reverter isso!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'deletar',
+            cancelButtonText: 'cancelar',
+
+          }).then(async(result) => {
+            if (result.isConfirmed) {
+              
+              setIsLoading(true)
+              
+              await api.delete('/notes/' + match.params.noteId, {  
+                  headers: {
+                      userauth: localStorage.getItem('Authorization')
+                  }
+              }
+              )
+              const userId = localStorage.getItem('userId')
+              setIsLoading(false)
+      
+              Swal.fire(
+                 'Você deletou',
+                 'Anotação deletada com sucesso',
+                 'success'
+               ).then(()=>history.push(`/user/${userId}`))
             }
-        }
-    )
-        const userId = localStorage.getItem('userId')
-        history.push(`/user/${userId}`)
+          })
+
+
+          
+          
+          
+        
     }
 
 
     return (
-        <di className="update-container">
+        <div className="update-container">
             <Header match={match}></Header>
             <div className="note-card">
+            {isLoading ? <Loading show={isLoading}/>: ''}
+
                  <form className="note-card" onSubmit={(e=>{handleUpdate(e)})}>
                     <input 
                     className="note-title-creation" 
@@ -82,7 +124,7 @@ const UpdateNote = ({ history, match }) => {
 
             </div>
             <Footer></Footer>
-        </di>
+        </div>
     )
 }
 

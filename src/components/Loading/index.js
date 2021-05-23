@@ -3,7 +3,7 @@ import { Translucent, Circle, Wrapper, Modal } from "./styled";
 import './animations.css'
 
 
-const Loading = ({show}) => {
+const Loading = ({show, ...rest}) => {
 
   const [showLoading, setShowLoading] = useState(show)
 
@@ -14,7 +14,7 @@ const Loading = ({show}) => {
 
 
   return (
-    <Wrapper style={{display:show?'flex':'none'}}>
+    <Wrapper style={{display:show?'flex':'none'}}  {...rest}>
       <Translucent />
         <Modal className={`grow`}>
           <Circle className="rotate" />
