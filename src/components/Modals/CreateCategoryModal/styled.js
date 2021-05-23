@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
+  z-index: 8888;
 `;
 
 export const Translucent = styled.div`

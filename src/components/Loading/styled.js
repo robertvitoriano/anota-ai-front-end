@@ -22,12 +22,27 @@ export const Translucent = styled.div`
   align-items: center;
 `;
 export const Circle = styled.div`
- width:300px;
-  height:300px;
+  width:150px;
+  height:150px;
   border:20px solid transparent;
-  border-bottom-color:#7E8374;
-  border-left-color:#7E8374;
+  border-bottom-color:#2b2b2a;
+  border-left-color:#2b2b2a;
   border-radius:50%;
   z-index: 3;
   position:relative;
 `;
+
+export const Modal = styled.div`
+width:600px;
+height:400px; 
+background-color:#c7c777;
+display:flex; 
+flex-direction:column; 
+align-items:center;
+justify-content:center;
+z-index:9999;
+border-radius: 15px;
+
+
+
+`

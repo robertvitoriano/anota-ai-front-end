@@ -5,14 +5,17 @@ import api from "./../../services/api";
 import Header from "./../../components/Header";
 import Footer from "./../../components/Footer";
 import CreateCategoryModal from "../../components/Modals/CreateCategoryModal";
+import Loading from './../../components/Loading'
 import "./index.css";
 
 function Categories({ match }) {
   const [categories, setCategories] = useState([]);
   const [showCreationModal, setShowCreationModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function loadCategories() {
+      setIsLoading(true)
       const response = await api.get(
         "/" + match.params.userId + "/categories",
         {
@@ -22,14 +25,16 @@ function Categories({ match }) {
         }
       );
       setCategories(response.data);
+
+      setIsLoading(false)
     }
     loadCategories();
-  }, []);
+  }, [match.params.userId]);
 
   const handleCategoryCreation = async (name, id) => {
 
     if(!name) return alert(" Insira o nome da nova categoria.");
-    
+     setIsLoading(true)
     const response = await api.post(
       "/" + match.params.userId + "/categories",
       {
@@ -43,17 +48,17 @@ function Categories({ match }) {
         },
       }
     );
+    setIsLoading(false)
     setShowCreationModal(false);
-
     const newCategory = response.data;
     setCategories([...categories, newCategory]);
 
-    
   };
 
   return (
-    <div className="categories-container">
+    <div className="categories-container" onClick={()=>{setIsLoading(false)}}>
       <Header match={match}></Header>
+      {isLoading? <Loading show ={isLoading}/>:''}
       <div className="categories-content">
         <div className=" categories-buttons categories-buttons-left">
           <a

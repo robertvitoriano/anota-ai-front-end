@@ -53,18 +53,13 @@ const Home = ({ match }) => {
         shownNotesRef.current = [];
 
       }catch(e){
-        console.log(e);
-        setIsLoading(true);
+        console.error(e);
+        setIsLoading(false);
       }
 
     }
     loadNotes();
-  }, [initialNote]);
-
-  useEffect(()=>{
-  setIsLoading(true);
-  console.log('Estado do carregamento',isLoading)
-  },[])
+  }, [initialNote, notes]);
 
   async function handleUpdate(id) {
     localStorage.setItem("userId", match.params.userId);
@@ -79,14 +74,10 @@ const Home = ({ match }) => {
     setInitialNote(initialNote - 5);
   }
 
-  const renderLoading = ()=>{
 
-    return(<Loading/>)
-  
-  }
   return (
-    <div className="home-container">
-     {isLoading ? <Loading/>:''}
+    <div className="home-container" onClick={()=>setIsLoading(false)}>
+     {isLoading ? <Loading show={isLoading}/>:''}
       <Header match={match}></Header>
       <div className="hamburguer-menu">
         <img className="hamburguer-menu-icon" src={hamburguerMenu} />
