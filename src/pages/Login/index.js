@@ -5,31 +5,34 @@ import Loading from './../../components/Loading'
 import api from "../../services/api";
 
 import "./login.css";
+import Swal from 'sweetalert2'
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
 
+
   async function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true)
-    const response = await api.post("/users/login", {
-      email: email,
-      password: password,
-    });
-    if (response.status === 400) {
-      console.log(response.status);
-      setIsLoading(true);
-      alert('An error ocurred');
-    } else {
-      // response será o user encontrado no banco de dados
-      const { token, user } = response.data;
-      localStorage.setItem("Authorization", token);
-      localStorage.setItem("userId", user._id);
+
+    try{
+
+      const response = await api.post("/users/login", {
+        email: email,
+        password: password,
+      });
+        const { token, user } = response.data;
+        localStorage.setItem("Authorization", token);
+        localStorage.setItem("userId", user._id);
+        setIsLoading(false)
+        history.push(`/user/${user._id}`);
+    }catch(e){
       setIsLoading(false)
-      history.push(`/user/${user._id}`);
+      Swal.fire("Algo deu errado", e.message, "error");
     }
+    
   }
   function handleSignUpButton(event) {
     event.preventDefault();
