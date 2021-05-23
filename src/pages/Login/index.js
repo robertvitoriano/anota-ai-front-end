@@ -37,8 +37,8 @@ const Login = ({ history }) => {
   }
 
   return (
-    <div className="login-container">
-      {isLoading?(<Loading/>):''}
+    <div className="login-container" onClick={()=>setIsLoading(false)}>
+      {isLoading?(<Loading show={isLoading}/>):''}
       <h1 className="welcome-message">Seja Bem-vindo(a)</h1>
       <div className="form-container">
         <form className="login-form" onSubmit={handleSubmit}>
