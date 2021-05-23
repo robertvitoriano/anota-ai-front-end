@@ -39,8 +39,10 @@ background-color:#c7c777;
 display:flex; 
 flex-direction:column; 
 align-items:center;
-border-radius:15;
 justify-content:center;
 z-index:9999;
 border-radius: 15px;
+
+
+
 `
