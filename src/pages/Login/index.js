@@ -28,6 +28,7 @@ const Login = ({ history }) => {
         localStorage.setItem("userId", user._id);
         setIsLoading(false)
         history.push(`/user/${user._id}`);
+        
     }catch(e){
       setIsLoading(false)
       Swal.fire("Algo deu errado", e.message, "error");
