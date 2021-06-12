@@ -59,8 +59,13 @@ input{
 margin-top: 5px;
 text-decoration: underline;
 font-size: 14px;
+color:#140303;
+font-weight: 600;
 }
 
+.password-recover-link:hover{
+    color:rgb(34, 17, 17)
+    }
 @media screen and (max-width: 600px) {
 
 .welcome-message,.signup-message{

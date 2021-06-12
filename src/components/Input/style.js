@@ -9,4 +9,12 @@ export const Input = styled.input`
   height:50px;
   outline: none;
   padding-left:15px;
+  margin-bottom: 15px;
 `;
+
+
+export const Label = styled.label`
+font-size: 18px;
+margin-bottom: 10px;
+
+`
