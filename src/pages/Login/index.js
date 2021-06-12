@@ -54,10 +54,7 @@ const Login = ({ history }) => {
     }catch(error){
       console.error(error)
       Swal.fire("Algo deu errado", error.message, "error");
-
     }
-
-
   }
 
   return (
