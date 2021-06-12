@@ -43,12 +43,28 @@ const Login = ({ history }) => {
     history.push(`/user/signup`);
   }
 
+  const handleRecoverEmail = async(event)=>{
+    event.preventDefault();
+    try{
+      await api.post("/users/email/", {
+        email: email,
+      });
+      
+    }catch(error){
+      console.error(error)
+      Swal.fire("Algo deu errado", error.message, "error");
+
+    }
+
+
+  }
+
   return (
     <div className="login-container" onClick={() => {
       setIsLoading(false)
     }}>
       {isLoading ? (<Loading show={isLoading} />) : ''}
-      {displayRecoverPasswordModal?<RecoverPasswordModal  setDisplayModal={setRecoverPasswordModal}   email={email} setEmail={setEmail}/>:''}
+      {displayRecoverPasswordModal?<RecoverPasswordModal  setDisplayModal={setRecoverPasswordModal}  onSubmit={handleRecoverEmail} email={email} setEmail={setEmail}/>:''}
       <h1 className="welcome-message">Seja Bem-vindo(a)</h1>
       <div className="form-container">
         <form className="login-form" onSubmit={handleSubmit}>

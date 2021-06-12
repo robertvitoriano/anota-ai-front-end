@@ -14,7 +14,7 @@ const RecoverPasswordModal = ({ email, setEmail, onSubmit, setDisplayModal}) =>{
        <Modal title="Recuperação de E-mail" setDisplayModal={setDisplayModal}>
 
        <Input label="Digite seu E-mail" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
-       <Button text="Enviar E-mail de recuperação" onClick={(e)=>{setEmail(e.target.value)}}/>
+       <Button text="Enviar E-mail de recuperação" onClick={(e)=>onSubmit()}/>
 
        </Modal>
   )
