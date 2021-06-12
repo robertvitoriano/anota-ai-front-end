@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
-import {Input as InputElement} from './style'
+import { Input as InputElement, Label } from './style'
 
-const Input = (props) =>{
+const Input = ({label, ...rest}) => {
 
-  return(
-
-    <InputElement {...props}/>
+  return (
+    <>
+      <Label>{label}</Label>
+      <InputElement  {...rest} />
+    </>
 
   )
 }
