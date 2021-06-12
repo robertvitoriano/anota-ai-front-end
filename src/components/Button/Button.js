@@ -1,11 +1,11 @@
 import React from 'react'
 import { Button as ButtonComponent } from './styled'
 
-const Button = ({ text }) => {
+const Button = ({ text, onClick }) => {
 
 
   return (
-           <ButtonComponent>
+           <ButtonComponent onClick={onClick}>
                <h1>{text}</h1>
            </ButtonComponent>
 
