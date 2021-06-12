@@ -6,10 +6,12 @@ import api from "../../services/api";
 
 import "./login.css";
 import Swal from 'sweetalert2'
+
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [displayRecoverPasswordModal, setRecoverPasswordModal] = useState(false)
 
 
 
@@ -65,6 +67,7 @@ const Login = ({ history }) => {
           <button type="submit" className="login-button button">
             Login
           </button>
+          <a className="password-recover-link" onClick={()=>setRecoverPasswordModal(true)}>Esqueceu a senha ? a gente te ajuda !</a>
         </form>
       </div>
       <h2 className="signup-message">

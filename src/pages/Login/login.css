@@ -55,6 +55,11 @@ input{
     background-color:#E4DFC1;
 
 }
+.password-recover-link{
+margin-top: 5px;
+text-decoration: underline;
+font-size: 14px;
+}
 
 @media screen and (max-width: 600px) {
 
