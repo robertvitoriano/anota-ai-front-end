@@ -45,8 +45,9 @@ const Login = ({ history }) => {
 
   const handleRecoverEmail = async(event)=>{
     event.preventDefault();
+    console.log('Has been clicked')
     try{
-      await api.post("/users/email/", {
+      await api.post("/email/recover", {
         email: email,
       });
       
