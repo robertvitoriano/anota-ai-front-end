@@ -41,7 +41,7 @@ function Category({ match,history }) {
     const {categoryId } = match.params;
     setIsLoading(true)
 
-    const response = await api.patch(`/categories/${categoryId}/remove`,{
+    await api.patch(`/categories/${categoryId}/remove`,{
       notesId:selectedNotes,
     },{
       headers: {

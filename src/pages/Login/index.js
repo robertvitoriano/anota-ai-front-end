@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import Footer from "./../../components/Footer";
-// import { Link } from 'react-router-dom';
 import Loading from './../../components/Loading'
 import api from "../../services/api";
 import RecoverPasswordModal from "../../components/Modals/RecoverPasswordModal";
 import "./login.css";
 import Swal from 'sweetalert2'
-import { Modal } from 'semantic-ui-react'
-
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,10 +51,7 @@ const Login = ({ history }) => {
     }catch(error){
       console.error(error)
       Swal.fire("Algo deu errado", error.message, "error");
-
     }
-
-
   }
 
   return (
@@ -88,7 +82,7 @@ const Login = ({ history }) => {
           <button type="submit" className="login-button button">
             Login
           </button>
-          <a className="password-recover-link" onClick={() => setRecoverPasswordModal(true)}>Esqueceu a senha ? a gente te ajuda !</a>
+          <a className="password-recover-link" onClick={() => setRecoverPasswordModal(true)} href="some">Esqueceu a senha ? a gente te ajuda !</a>
         </form>
       </div>
       <h2 className="signup-message">
