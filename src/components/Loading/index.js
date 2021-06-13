@@ -1,12 +1,16 @@
 import React from "react";
-import { Translucent, Circle, Wrapper,CircleHalf } from "./styled";
-import './rotation.css'
+import { Translucent, Circle, Wrapper, Modal } from "./styled";
+import './animations.css'
 
-const Loading = () => {
+
+const Loading = ({show, ...rest}) => {
+
   return (
-    <Wrapper>
-      <Translucent  />
-     <Circle className="rotate"/>
+    <Wrapper style={{display:show?'flex':'none'}}  {...rest}>
+      <Translucent />
+        <Modal className={`grow`}>
+          <Circle className="rotate" />
+        </Modal>
     </Wrapper>
   );
 };

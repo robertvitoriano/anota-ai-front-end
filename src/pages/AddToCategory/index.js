@@ -10,44 +10,45 @@ import {
 import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
-function AddToCategory({ match,history }) {
-  const [title, setTitle] = useState("");
+function AddToCategory({ match, history }) {
+  const [title] = useState("");
   const [notes, setNotes] = useState("");
-  const [selectedNotes,setSelectedNote] = useState([]);
+  const [selectedNotes, setSelectedNote] = useState([]);
+  const [, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const loadNotes= async () => {
-      const { userId, categoryId } = match.params;
-      
+    const loadNotes = async () => {
+      const {categoryId } = match.params;
+
+      setIsLoading(true)
+
       const response = await api.get(`/notes`, {
         headers: {
           userAuth: localStorage.getItem("Authorization"),
         },
       });
       const allNotes = response.data;
-      const filteredNotes = allNotes.filter(note=>note.categoryId !==categoryId)
+      const filteredNotes = allNotes.filter(note => note.categoryId !== categoryId)
       setNotes(filteredNotes);
-      console.log("Essas são as anotações pertecentes À minha categoria",filteredNotes)
 
-
+      setIsLoading(false)
     };
     loadNotes();
-  }, []);
+  }, [match.params]);
 
-  const handleAddToCategory = async (selectedNotes,categoryId) =>{
-    console.log(selectedNotes)
-    const response = await api.post(`/categories/${categoryId}/associate`,{
-      notesId:selectedNotes,
-    },{
+  const handleAddToCategory = async (selectedNotes, categoryId) => {
+    setIsLoading(true)
+    await api.post(`/categories/${categoryId}/associate`, {
+      notesId: selectedNotes,
+    }, {
       headers: {
         userAuth: localStorage.getItem("Authorization"),
       }
     })
 
-    console.log("Esses são os ID's",selectedNotes);
-     const{userId} = localStorage.getItem('userId')
-     history.push(`/${userId}/${categoryId}`)
-
+    const { userId } = localStorage.getItem('userId')
+    setIsLoading(false)
+    history.push(`/${userId}/${categoryId}`)
 
   }
 
@@ -61,21 +62,21 @@ function AddToCategory({ match,history }) {
           <NotesWrapper>
             {notes
               ? notes.map((note) => (
-                  <NoteCard
-                    title={note.title}
-                    body={note.body}
-                    onSelect={setSelectedNote}
-                    id={note._id}
-                    categoryId={match.params.categoryId}
-                    selectedNotes={selectedNotes}
-                    hasRadio={true}
+                <NoteCard
+                  title={note.title}
+                  body={note.body}
+                  onSelect={setSelectedNote}
+                  id={note._id}
+                  categoryId={match.params.categoryId}
+                  selectedNotes={selectedNotes}
+                  hasRadio={true}
 
-                  />
-                ))
+                />
+              ))
               : "Não há anotações"}
           </NotesWrapper>
           <ButtonsWrapper>
-            <Button onClick={()=>handleAddToCategory(selectedNotes,match.params.categoryId)}>Adicionar</Button>
+            <Button onClick={() => handleAddToCategory(selectedNotes, match.params.categoryId)}>Adicionar</Button>
           </ButtonsWrapper>
         </Content>
       </Wrapper>

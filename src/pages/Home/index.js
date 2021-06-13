@@ -53,18 +53,13 @@ const Home = ({ match }) => {
         shownNotesRef.current = [];
 
       }catch(e){
-        console.log(e);
-        setIsLoading(true);
+        console.error(e);
+        setIsLoading(false);
       }
 
     }
     loadNotes();
-  }, [initialNote]);
-
-  useEffect(()=>{
-  setIsLoading(true);
-  console.log('Estado do carregamento',isLoading)
-  },[])
+  }, [initialNote, notes]);
 
   async function handleUpdate(id) {
     localStorage.setItem("userId", match.params.userId);
@@ -79,17 +74,13 @@ const Home = ({ match }) => {
     setInitialNote(initialNote - 5);
   }
 
-  const renderLoading = ()=>{
 
-    return(<Loading/>)
-  
-  }
   return (
-    <div className="home-container">
-     {isLoading ? <Loading/>:''}
+    <div className="home-container" onClick={()=>setIsLoading(false)}>
+     {isLoading ? <Loading show={isLoading}/>:''}
       <Header match={match}></Header>
       <div className="hamburguer-menu">
-        <img className="hamburguer-menu-icon" src={hamburguerMenu} />
+        <img className="hamburguer-menu-icon" src={hamburguerMenu}  alt="hamburger menu"/>
       </div>
       <div className="home-content">
         {notes.length > 5 ? (
@@ -97,7 +88,7 @@ const Home = ({ match }) => {
             className="next-button"
             onClick={(e) => handleNextNotesButton(e)}
           >
-            <img className="arrow-icon" src={arrow} />
+            <img className="arrow-icon" src={arrow} alt="arrow" />
           </div>
         ) : (
           ""
@@ -112,7 +103,7 @@ const Home = ({ match }) => {
                   onClick={() => {
                     handleUpdate(note._id);
                   }}
-                  href="#"
+                  href="some"
                 >
                   <NoteCard
                     title={note.title}
@@ -130,7 +121,7 @@ const Home = ({ match }) => {
 
         {initialNote >= 5 ? (
           <div className="previous-button" onClick={handlePreviousNotesButton}>
-            <img className="arrow-icon previous-icon" src={arrow} />
+            <img className="arrow-icon previous-icon" src={arrow} alt="arrow" />
           </div>
         ) : (
           ""

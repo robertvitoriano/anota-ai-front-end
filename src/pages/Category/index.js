@@ -10,6 +10,7 @@ import {
 import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
+import Loading from './../../components/Loading'
 function Category({ match,history }) {
 
   const [title, setTitle] = useState("");
@@ -19,7 +20,9 @@ function Category({ match,history }) {
 
   useEffect(() => {
     const loadCategoryInfo = async () => {
+
       const { userId, categoryId } = match.params;
+      setIsLoading(true)
       const response = await api.get(`/${userId}/categories/${categoryId}`, {
         headers: {
           userAuth: localStorage.getItem("Authorization"),
@@ -30,15 +33,15 @@ function Category({ match,history }) {
       const categoryNotes = response.data.notes;
       setTitle(category.name);
       setNotes(categoryNotes);
-      console.log("Essas são as anotações",response.data);
     };
     loadCategoryInfo();
-  }, []);
+  }, [match.params]);
 
   const handleDelete = async(selectedNotes) =>{
     const {categoryId } = match.params;
+    setIsLoading(true)
 
-    const response = await api.patch(`/categories/${categoryId}/remove`,{
+    await api.patch(`/categories/${categoryId}/remove`,{
       notesId:selectedNotes,
     },{
       headers: {
@@ -47,11 +50,13 @@ function Category({ match,history }) {
     });
     const remainingNotes = notes.filter((note)=>!selectedNotes.includes(note._id))
     setNotes(remainingNotes);
+    setIsLoading(false)
   }
   return (
     <>
-      <Header match={match} />
-      <Wrapper>
+      <Header match={match} onClick={()=>{setIsLoading(false)}} />
+      <Wrapper onClick={()=>{setIsLoading(false)}}>
+      {isLoading?(<Loading show={isLoading}/>):''}
         <h1>{title}</h1>
         <Content>
           <NotesWrapper>

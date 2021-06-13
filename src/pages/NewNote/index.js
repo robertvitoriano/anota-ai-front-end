@@ -3,22 +3,32 @@ import './new-note.css'
 import api from '../../services/api.js'
 import Header from './../../components/Header'
 import Footer from './../../components/Footer'
+import Swal from 'sweetalert2'
+import Loading from '../../components/Loading'
 
 const NewNote=({match,history})=>{
     const[body,setBody] = useState('');
     const [title, setTitle] = useState('');
+    const [isLoading, setIsLoading] = useState(false)
 
-    const token = localStorage.getItem("Authorization");
-    console.log(token);
+    
      async function handleSubmit(event){
          event.preventDefault();
+         setIsLoading(true)
          await api.post('/notes', { title, body }, {headers: { userauth: localStorage.getItem("Authorization")}})
-         const userId =   localStorage.getItem('userId');
-         history.push(`/user/${userId}`)
+         setTitle('')
+         setBody('')
+         setIsLoading(false)
+         Swal.fire(
+            'Você Criou!',
+            'Anotação criada com sucesso',
+            'success'
+          )
      }
-    return(<div className="new-note-container">
+    return(<div className="new-note-container" onClick={()=>setIsLoading(false)}>
         <Header match={match}></Header>
         <div className="note-container">
+            {isLoading ? <Loading show={isLoading}/>: ''}
             <form onSubmit={handleSubmit}>
             <input placeholder="digite o titulo da sua anotação" 
             name="title" 
@@ -36,7 +46,7 @@ const NewNote=({match,history})=>{
             ></textarea>
             <button type="submit"
              className="note-button"
-            >Salvar Anotação</button>
+            >Criar Anotação</button>
             </form>
         </div>
         <Footer></Footer>
