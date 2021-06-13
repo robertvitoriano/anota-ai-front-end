@@ -83,7 +83,6 @@ const Login = ({ history }) => {
           <button type="submit" className="login-button button">
             Login
           </button>
-          // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a className="password-recover-link" onClick={() => setRecoverPasswordModal(true)}>Esqueceu a senha ? a gente te ajuda !</a>
         </form>
       </div>
