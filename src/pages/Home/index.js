@@ -103,7 +103,6 @@ const Home = ({ match }) => {
                   onClick={() => {
                     handleUpdate(note._id);
                   }}
-                  href="some"
                 >
                   <NoteCard
                     title={note.title}

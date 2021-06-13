@@ -32,21 +32,20 @@ function Header({ match }) {
     <>
       <div className="header-container">
         <div className="header-content">
-          <a onClick={handleHome} href="some" className=" header-button">
+          <a onClick={handleHome}  className=" header-button">
             Home
           </a>
           <a
             onClick={e=>history.push(`/${match.params.userId}/categories`)}
             className=" header-button categories-button"
-            href="some"
           >
             Categorias
           </a>
 
-          <a onClick={handleCreation} className="header-button"href="some">
+          <a onClick={handleCreation} className="header-button">
             Criar Anotação
           </a>
-          <a onClick={handleLogout} className=" header-button" href="some">
+          <a onClick={handleLogout} className=" header-button" >
             LOGOUT
           </a>
         </div>

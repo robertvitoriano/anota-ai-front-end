@@ -61,7 +61,7 @@ function Categories({ match }) {
       {isLoading? <Loading show ={isLoading}/>:''}
       <div className="categories-content">
         <div className=" categories-buttons categories-buttons-left">
-          <a href="some"
+          <a
             className="header-button categories-button"
             onClick={() => setShowCreationModal(true)
             
@@ -69,7 +69,7 @@ function Categories({ match }) {
           >
             Criar
           </a>
-          <a className="header-button categories-button" href="some">Deletar</a>
+          <a className="header-button categories-button" >Deletar</a>
         </div>
         <div className="categories-scroll-list">
           <ul>

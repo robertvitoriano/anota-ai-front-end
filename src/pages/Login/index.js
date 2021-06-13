@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState } from "react";
 import Footer from "./../../components/Footer";
 import Loading from './../../components/Loading'
@@ -82,7 +83,8 @@ const Login = ({ history }) => {
           <button type="submit" className="login-button button">
             Login
           </button>
-          <a className="password-recover-link" onClick={() => setRecoverPasswordModal(true)} href="some">Esqueceu a senha ? a gente te ajuda !</a>
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a className="password-recover-link" onClick={() => setRecoverPasswordModal(true)}>Esqueceu a senha ? a gente te ajuda !</a>
         </form>
       </div>
       <h2 className="signup-message">
