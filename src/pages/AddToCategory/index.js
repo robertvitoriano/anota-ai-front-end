@@ -11,14 +11,14 @@ import Footer from "./../../components/Footer";
 import Header from "./../../components/Header";
 import NoteCard from "../../components/NoteCard";
 function AddToCategory({ match, history }) {
-  const [title, setTitle] = useState("");
+  const [title] = useState("");
   const [notes, setNotes] = useState("");
   const [selectedNotes, setSelectedNote] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [, setIsLoading] = useState(false);
 
   useEffect(() => {
     const loadNotes = async () => {
-      const { userId, categoryId } = match.params;
+      const {categoryId } = match.params;
 
       setIsLoading(true)
 
@@ -38,7 +38,7 @@ function AddToCategory({ match, history }) {
 
   const handleAddToCategory = async (selectedNotes, categoryId) => {
     setIsLoading(true)
-    const response = await api.post(`/categories/${categoryId}/associate`, {
+    await api.post(`/categories/${categoryId}/associate`, {
       notesId: selectedNotes,
     }, {
       headers: {
@@ -46,7 +46,6 @@ function AddToCategory({ match, history }) {
       }
     })
 
-    console.log("Esses são os ID's", selectedNotes);
     const { userId } = localStorage.getItem('userId')
     setIsLoading(false)
     history.push(`/${userId}/${categoryId}`)

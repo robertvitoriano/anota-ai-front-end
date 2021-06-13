@@ -18,13 +18,15 @@ const NoteCard = ({ title, body,id,selectedNotes,onSelect,hasRadio}) => {
             const remainingNotes = selectedNotes.filter((note)=>note!==id)
            onSelect(remainingNotes);
            break;
+          
+          default: console.log("selected notes",selectedNotes);
         }
-        console.log("selected notes",selectedNotes);
+        
       }
     }
     handleSelection()
 
-   },[wasChecked])
+   },[id, onSelect, selectedNotes, wasChecked])
   return (
     <Wrapper>
      {hasRadio&&( <RadioButton

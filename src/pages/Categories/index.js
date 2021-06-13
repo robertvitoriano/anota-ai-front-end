@@ -61,20 +61,21 @@ function Categories({ match }) {
       {isLoading? <Loading show ={isLoading}/>:''}
       <div className="categories-content">
         <div className=" categories-buttons categories-buttons-left">
-          <a
+          <a href="some"
             className="header-button categories-button"
-            onClick={() => setShowCreationModal(true)}
+            onClick={() => setShowCreationModal(true)
+            
+            }
           >
             Criar
           </a>
-          <a className="header-button categories-button">Deletar</a>
-          <a className="header-button categories-button"></a>
+          <a className="header-button categories-button" href="some">Deletar</a>
         </div>
         <div className="categories-scroll-list">
           <ul>
             <div className="categories-list">
               {categories.map((category) => (
-                <Link to={`/${match.params.userId}/${category._id}`}>
+                <Link to={`/${match.params.userId}/${category._id}`} >
                 <li key={category._id}>
                   {category.name}
                 </li>
@@ -84,9 +85,7 @@ function Categories({ match }) {
           </ul>
         </div>
         <div className=" categories-buttons categories-buttons-right">
-          <a className="header-button categories-button"></a>
-          <a className="header-button categories-button"></a>
-          <a className="header-button categories-button"></a>
+
         </div>
       </div>
       <Footer></Footer>

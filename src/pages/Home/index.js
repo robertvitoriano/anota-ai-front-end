@@ -80,7 +80,7 @@ const Home = ({ match }) => {
      {isLoading ? <Loading show={isLoading}/>:''}
       <Header match={match}></Header>
       <div className="hamburguer-menu">
-        <img className="hamburguer-menu-icon" src={hamburguerMenu} />
+        <img className="hamburguer-menu-icon" src={hamburguerMenu}  alt="hamburger menu"/>
       </div>
       <div className="home-content">
         {notes.length > 5 ? (
@@ -88,7 +88,7 @@ const Home = ({ match }) => {
             className="next-button"
             onClick={(e) => handleNextNotesButton(e)}
           >
-            <img className="arrow-icon" src={arrow} />
+            <img className="arrow-icon" src={arrow} alt="arrow" />
           </div>
         ) : (
           ""
@@ -103,7 +103,7 @@ const Home = ({ match }) => {
                   onClick={() => {
                     handleUpdate(note._id);
                   }}
-                  href="#"
+                  href="some"
                 >
                   <NoteCard
                     title={note.title}
@@ -121,7 +121,7 @@ const Home = ({ match }) => {
 
         {initialNote >= 5 ? (
           <div className="previous-button" onClick={handlePreviousNotesButton}>
-            <img className="arrow-icon previous-icon" src={arrow} />
+            <img className="arrow-icon previous-icon" src={arrow} alt="arrow" />
           </div>
         ) : (
           ""

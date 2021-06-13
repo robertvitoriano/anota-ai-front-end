@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./index.css";
 import { useHistory } from "react-router-dom";
 import api from "./../../services/api";
@@ -32,20 +32,21 @@ function Header({ match }) {
     <>
       <div className="header-container">
         <div className="header-content">
-          <a onClick={handleHome} className=" header-button">
+          <a onClick={handleHome} href="some" className=" header-button">
             Home
           </a>
           <a
             onClick={e=>history.push(`/${match.params.userId}/categories`)}
             className=" header-button categories-button"
+            href="some"
           >
             Categorias
           </a>
 
-          <a onClick={handleCreation} className="header-button">
+          <a onClick={handleCreation} className="header-button"href="some">
             Criar Anotação
           </a>
-          <a onClick={handleLogout} className=" header-button">
+          <a onClick={handleLogout} className=" header-button" href="some">
             LOGOUT
           </a>
         </div>
