@@ -39,6 +39,7 @@ const Login = ({ history }) => {
   function handleSignUpButton(event) {
     event.preventDefault();
     history.push(`/user/signup`);
+    
   }
 
   const handleRecoverEmail = async(event)=>{

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Loading from "./../../components/Loading";
 import Input from "../../components/Input";
 import api from "../../services/api";
@@ -10,6 +10,8 @@ import "./sigin-in.css";
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -24,11 +26,13 @@ const Login = ({ history }) => {
         "Cadastro iniciado",
         `Em breve um e-mail será enviado para ${email}, confirme seu e-mail, finalize o cadastro e comece a criar !`,
         "success"
+        
       ).then(() => history.push(`/`));
     } catch (e) {
       setIsLoading(false);
       console.error(e);
-      Swal.fire("Algo deu errado", e.message, "error");
+      Swal.fire("Algo deu errado, tente novamente por favor !", e.message, "error");
+      document.location.reload()
     }
   }
 
